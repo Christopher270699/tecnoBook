@@ -3,7 +3,7 @@ php_value error_reporting 9999
 
 RewriteEngine On
 #Para localhost el RewriteBase iria así
-RewriteBase /ejemplomvc/
+RewriteBase /tecnoBook/
 
 #Para hostinger.com el RewriteBase iria así
 #RewriteBase /
