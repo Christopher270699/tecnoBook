@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title><?= (isset($this->title)) ? $this->title : ''; ?></title>
-        <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap-Paper-337.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="<?php echo URL; ?>public/css/bootstrap-responsive.min.css">
