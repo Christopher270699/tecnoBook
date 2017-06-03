@@ -1,5 +1,5 @@
 <?php
-class Login extends Controllers {
+class Libro extends Controllers {
     function __construct(){
         parent::__construct();
     }
@@ -7,12 +7,6 @@ class Login extends Controllers {
         $this->view->title = 'Iniciar sesión'; 
         $this->view->render('header');
         $this->view->render('login/index');
-        $this->view->render('footer');
-    }
-    function recuperarClave(){
-        $this->view->title = 'Recuperar Password'; 
-        $this->view->render('header');
-        $this->view->render('login/recuperarClave');
         $this->view->render('footer');
     }
     function run(){

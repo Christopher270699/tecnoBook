@@ -61,9 +61,9 @@
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Secciones <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Libro <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="<?php echo URL; ?>seccion/index">Ver Sección</a></li>
+                          <li><a href="<?php echo URL; ?>libro/agregarLibro">Agregar Libro</a></li>
                           <?php if (Session::get('tipoUsuario') < 2){ ?>
                           <li><a href="<?php echo URL; ?>actualizarestudiantes/cargarSeccionesEstudiantes">Cargar Secciones Estudiantes</a></li>
                           <?php }  ?>
