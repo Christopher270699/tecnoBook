@@ -194,7 +194,7 @@
             <div class="row">
                 <div class="col-xs-1"></div>
                 <div class="col-xs-1">
-                    <img src="<?php echo URL; ?>public/img/logoEmpresa.png" alt="Logo Empresa" class="img-rounded pull-left img-responsive">
+                    <img src="<?php echo URL; ?>public/img/IconoTecnoBook.jpg" alt="Logo Empresa" class="img-rounded pull-left img-responsive">
                 </div>
                 <div class="col-xs-8 text-center">
                     <div class="row">
