@@ -1,5 +1,5 @@
 <?php
-class Libro extends Controllers {
+class Login extends Controllers {
     function __construct(){
         parent::__construct();
     }
