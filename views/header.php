@@ -64,6 +64,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Libro <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="<?php echo URL; ?>libro/agregarLibro">Agregar Libro</a></li>
+                          <li><a href="<?php echo URL; ?>libro/cargarLibros">Cargar Libros</a></li>
                           <?php if (Session::get('tipoUsuario') < 2){ ?>
                           <li><a href="<?php echo URL; ?>actualizarestudiantes/cargarSeccionesEstudiantes">Cargar Secciones Estudiantes</a></li>
                           <?php }  ?>
