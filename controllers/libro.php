@@ -10,8 +10,12 @@ class Libro extends Controllers {
         $this->view->render('footer');
     }
     function guardarLibro(){
-        echo 'Guardando Libro...';
-        echo '<br>Titulo: '.$_POST['txt_Titulo'].'<br>Autor: '.$_POST['txt_Autor'].'<br>Categoria: '.$_POST['txt_Categoria'].'<br>Codigo: '.$_POST['txt_Codigo'];
+        $datos = array();
+        $datos ['txt_titulo'] = $_POST['txt_titulo'];
+        $datos ['txt_autor'] = $_POST['txt_autor'];
+        $datos ['txt_categoria'] = $_POST['txt_categoria'];
+        $datos ['txt_codigo'] = $_POST['txt_codigo'];
+        $this->model->guardarLibro($datos);
     }
     function recuperarClave(){
         $this->view->title = 'Recuperar Password'; 
