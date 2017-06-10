@@ -5,8 +5,7 @@
         <group>
             <file>file:/D:/xampp/htdocs/tecnoBook/controllers/libro.php</file>
             <file>file:/D:/xampp/htdocs/tecnoBook/models/libro_model.php</file>
-            <file>file:/D:/xampp/htdocs/tecnoBook/views/libro/agregarLibro.php</file>
-            <file>file:/D:/xampp/htdocs/tecnoBook/views/header.php</file>
+            <file>file:/D:/xampp/htdocs/tecnoBook/views/libro/editarLibro.php</file>
         </group>
     </open-files>
 </project-private>
