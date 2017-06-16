@@ -17,6 +17,7 @@
         </tr>
         <?php
         $con = 1;
+        $mensaje = "'¿Desea eliminar este libro?'";
         foreach ($this->listaLibros as $lista => $value) {
             echo '<tr>';
             echo '<td>';
@@ -36,7 +37,7 @@
             echo '</td>';
             echo '<td class = text-center>';
             echo '<a class="btn-sm btn-warning" href="editarLibro/' . $value['codigo'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="eliminarLibro/' . $value['codigo'] . '">Eliminar</a>';
+            echo '<a class="btn-sm btn-danger" href="eliminarLibro/' . $value['codigo'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
             echo '</td>';
             echo '</tr>';
             $con++;

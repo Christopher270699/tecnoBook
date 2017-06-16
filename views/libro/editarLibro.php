@@ -26,7 +26,8 @@
             <div class="form-group">
                 <label for="txt_codigo" class="col-xs-2 control-label">Codigo:</label>
                 <div class="col-xs-2">
-                    <input type="text" class="form-control input-sm validate[required]"  id="txt_codigo" name="txt_codigo" value='<?php if ($this->datosLibro != null) echo $this->datosLibro[0]['codigo']; ?>'/>
+                    <input type="text" class="form-control input-sm validate[required]"  id="txt_codigo" name="txt_codigo" value='<?php if ($this->datosLibro != null) echo $this->datosLibro[0]['codigo']; ?>'disabled=""/>
+                    <input type="hidden" id="txt_codigo" name="txt_codigo" value='<?php if ($this->datosLibro != null) echo $this->datosLibro[0]['codigo']; ?>'/>
                 </div>
             </div>
             <br><br>

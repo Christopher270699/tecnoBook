@@ -41,6 +41,19 @@ Class Libro_Model extends Models{
             die;
         }
     }
+    public function eliminarLibro($codigo){
+        //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
+        $consultaExistenciaLibro = $this->db->select("SELECT * FROM libro "
+                . "WHERE codigo = '" . $codigo . "' ");
+
+        if ($consultaExistenciaLibro != null) {
+            $this->db->delete('libro', "`codigo` = '{$codigo}'");
+        } else {
+            //Sino Inserto datos de Pre-Matricula del Estudiante
+            echo 'Error... no existe';
+            die;
+        }
+    }
     public function listaLibros(){
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaListaLibros = $this->db->select("SELECT * FROM libro ");

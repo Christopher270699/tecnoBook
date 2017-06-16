@@ -23,6 +23,11 @@ class Libro extends Controllers {
         $this->view->render('libro/editarLibro');
         $this->view->render('footer');
     }
+    function eliminarLibro($codigo){
+        $this->view->title = 'Editar Libro';
+        $this->model->eliminarLibro($codigo);
+        header("Location:" . URL . "libro/cargarLibros");
+    }
     function guardarLibro(){
         $datos = array();
         $datos ['txt_titulo'] = $_POST['txt_titulo'];
