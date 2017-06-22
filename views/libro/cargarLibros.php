@@ -5,14 +5,14 @@
 <center>
     <table class="table table-condensed">
         <tr>
-            <th colspan="6" class="nombreTabla text-center">Lista de Libros</th>
+            <th colspan="8" class="nombreTabla text-center">Lista de Libros</th>
         </tr>
         <tr>
             <th>N°</th>
             <th>Título</th>
             <th>Autor</th>
             <th>Categoría</th>
-            <th>Codigo</th>
+            <th>Editorial</th>
             <th colspan="2" class="text-center">Acción</th>
         </tr>
         <?php
@@ -33,7 +33,7 @@
             echo $value['categoria'];
             echo '</td>';
             echo '<td>';
-            echo $value['codigo'];
+            echo $value['editorial'];
             echo '</td>';
             echo '<td class = text-center>';
             echo '<a class="btn-sm btn-warning" href="editarLibro/' . $value['codigo'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
@@ -44,10 +44,10 @@
         }
         ?>
         <tr>
-            <td colspan='6' class="lineaFin"></td>
+            <td colspan='8' class="lineaFin"></td>
         </tr>
         <tr>
-            <td colspan='6'>Última línea</td>
+            <td colspan='8'>Última línea</td>
         </tr>
     </table>
 </center>

@@ -1,13 +1,15 @@
 <?php
-Class Libro_Model extends Models{
-    
-    public function __construct() 
-    {
+
+Class Libro_Model extends Models {
+
+    public function __construct() {
         parent::__construct();
     }
+
     /* Inserta estudiante Nuevo Libro en la BD */
-    public function guardarLibro($datos){
-        //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
+
+    public function guardarLibro($datos) {
+        //Guardo los datos en libro
         $consultaExistenciaLibro = $this->db->select("SELECT * FROM libro "
                 . "WHERE codigo = '" . $datos['txt_codigo'] . "' ");
 
@@ -15,15 +17,22 @@ Class Libro_Model extends Models{
             echo 'Error... ya existe';
             die;
         } else {
-            //Sino Inserto datos de Pre-Matricula del Estudiante
+            //Sino Inserto datos
             $this->db->insert('libro', array(
                 'titulo' => $datos['txt_titulo'],
                 'autor' => $datos['txt_autor'],
                 'categoria' => $datos['txt_categoria'],
-                'codigo' => $datos['txt_codigo']));
+                'codigo' => $datos['txt_codigo'],
+                'editorial' => $datos['txt_editorial'],
+                'inscripcion' => $datos['txt_inscripcion'],
+                'fechaPublicacion' => $datos['txt_fechaPublicacion'],
+                'lugarPublicacion' => $datos['txt_lugarPublicacion'],
+                'isbn' => $datos['txt_isbn'],
+                'contenido' => $datos['txt_contenido']));
         }
     }
-    public function actualizarLibro($datos){
+
+    public function actualizarLibro($datos) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaLibro = $this->db->select("SELECT * FROM libro "
                 . "WHERE codigo = '" . $datos['txt_codigo'] . "' ");
@@ -32,7 +41,14 @@ Class Libro_Model extends Models{
             $posData = array(
                 'titulo' => $datos['txt_titulo'],
                 'autor' => $datos['txt_autor'],
-                'categoria' => $datos['txt_categoria']);
+                'categoria' => $datos['txt_categoria'],
+                'codigo' => $datos['txt_codigo'],
+                'editorial' => $datos['txt_editorial'],
+                'inscripcion' => $datos['txt_inscripcion'],
+                'fechaPublicacion' => $datos['txt_fechaPublicacion'],
+                'lugarPublicacion' => $datos['txt_lugarPublicacion'],
+                'isbn' => $datos['txt_isbn'],
+                'contenido' => $datos['txt_contenido']);
 
             $this->db->update('libro', $posData, "`codigo` = '{$datos['txt_codigo']}'");
         } else {
@@ -41,7 +57,8 @@ Class Libro_Model extends Models{
             die;
         }
     }
-    public function eliminarLibro($codigo){
+
+    public function eliminarLibro($codigo) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaLibro = $this->db->select("SELECT * FROM libro "
                 . "WHERE codigo = '" . $codigo . "' ");
@@ -54,12 +71,14 @@ Class Libro_Model extends Models{
             die;
         }
     }
-    public function listaLibros(){
+
+    public function listaLibros() {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaListaLibros = $this->db->select("SELECT * FROM libro ");
         return $consultaListaLibros;
     }
-    public function datosLibro($codigo){
+
+    public function datosLibro($codigo) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaLibro = $this->db->select("SELECT * FROM libro "
                 . "WHERE codigo = '" . $codigo . "' ");
@@ -72,5 +91,7 @@ Class Libro_Model extends Models{
             die;
         }
     }
+
 }
+
 ?>

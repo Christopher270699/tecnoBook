@@ -34,6 +34,12 @@ class Libro extends Controllers {
         $datos ['txt_autor'] = $_POST['txt_autor'];
         $datos ['txt_categoria'] = $_POST['txt_categoria'];
         $datos ['txt_codigo'] = $_POST['txt_codigo'];
+        $datos ['txt_editorial'] = $_POST['txt_editorial'];
+        $datos ['txt_inscripcion'] = $_POST['txt_inscripcion'];
+        $datos ['txt_fechaPublicacion'] = $_POST['txt_fechaPublicacion'];
+        $datos ['txt_lugarPublicacion'] = $_POST['txt_lugarPublicacion'];
+        $datos ['txt_isbn'] = $_POST['txt_isbn'];
+        $datos ['txt_contenido'] = $_POST['txt_contenido'];
         $this->model->guardarLibro($datos);
         header("Location:" . URL . "libro/cargarLibros");
     }
@@ -43,6 +49,12 @@ class Libro extends Controllers {
         $datos ['txt_autor'] = $_POST['txt_autor'];
         $datos ['txt_categoria'] = $_POST['txt_categoria'];
         $datos ['txt_codigo'] = $_POST['txt_codigo'];
+        $datos ['txt_editorial'] = $_POST['txt_editorial'];
+        $datos ['txt_inscripcion'] = $_POST['txt_inscripcion'];
+        $datos ['txt_fechaPublicacion'] = $_POST['txt_fechaPublicacion'];
+        $datos ['txt_lugarPublicacion'] = $_POST['txt_lugarPublicacion'];
+        $datos ['txt_isbn'] = $_POST['txt_isbn'];
+        $datos ['txt_contenido'] = $_POST['txt_contenido'];
         $this->model->actualizarLibro($datos);
         header("Location:" . URL . "libro/cargarLibros");
     }
