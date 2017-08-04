@@ -22,11 +22,12 @@ class Factura extends Controllers {
     }
 
     function editarFactura($datos) {
-        $this->view->title = 'Editar Factura';
+        $this->view->title = 'Editar Libro';
         $this->view->render('header');
         $this->view->datosFactura = $this->model->datosFactura($datos);
         $this->view->render('factura/editarFactura');
         $this->view->render('footer');
+    }
 
     function eliminarFactura($datos) {
         $this->view->title = 'Editar Factura';

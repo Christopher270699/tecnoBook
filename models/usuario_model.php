@@ -1,12 +1,14 @@
 <?php
-Class Usuario_Model extends Models{
-    
-    public function __construct() 
-    {
+
+Class Usuario_Model extends Models {
+
+    public function __construct() {
         parent::__construct();
     }
+
     /* Inserta estudiante Nuevo Usuario en la BD */
-    public function guardarUsuario($datos){
+
+    public function guardarUsuario($datos) {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
                 . "WHERE nombreUsuario = '" . $datos['txt_nombreUsuario'] . "' ");
@@ -25,7 +27,8 @@ Class Usuario_Model extends Models{
                 'seccion' => $datos['txt_seccion']));
         }
     }
-    public function actualizarUsuario($datos){
+
+    public function actualizarUsuario($datos) {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
                 . "WHERE nombreUsuario = '" . $datos['txt_nombreUsuario'] . "' ");
@@ -44,7 +47,8 @@ Class Usuario_Model extends Models{
             die;
         }
     }
-    public function eliminarUsuario($datos){
+
+    public function eliminarUsuario($datos) {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
                 . "WHERE nombreUsuario = '" . $datos . "' ");
@@ -57,12 +61,14 @@ Class Usuario_Model extends Models{
             die;
         }
     }
-    public function listaUsuarios(){
+
+    public function listaUsuarios() {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaListaUsuarios = $this->db->select("SELECT * FROM usuario ");
         return $consultaListaUsuarios;
     }
-    public function datosUsuario($datos){
+
+    public function datosUsuario($datos) {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
                 . "WHERE nombreUsuario = '" . $datos . "' ");
@@ -75,5 +81,7 @@ Class Usuario_Model extends Models{
             die;
         }
     }
+
 }
+
 ?>

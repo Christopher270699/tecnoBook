@@ -27,10 +27,10 @@ Class Factura_Model extends Models {
     }
 
     public function actualizarFactura($datos) {
-        //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
-        $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
+        //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
+        $consultaExistenciaLibro = $this->db->select("SELECT * FROM factura "
                 . "WHERE nombreLibro = '" . $datos['txt_nombreLibro'] . "' ");
-        if ($consultaExistenciaFactura != null) {
+        if ($consultaExistenciaLibro != null) {
             $posData = array(
                 'nombreLibro' => $datos['txt_nombreLibro'],
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
