@@ -17,14 +17,16 @@ Class Usuario_Model extends Models {
             echo 'Error... ya existe';
             die;
         } else {
+            $pass = Hash::create('md5', $datos['txt_password'], HASH_PASSWORD_KEY);
             //Sino Inserto datos de Pre-Matricula del Estudiante
             $this->db->insert('usuario', array(
                 'nombreUsuario' => $datos['txt_nombreUsuario'],
-                'password' => $datos['txt_password'],
+                'password' => $pass,
                 'cedula' => $datos['txt_cedula'],
                 'correo' => $datos['txt_correo'],
                 'telefono' => $datos['txt_telefono'],
-                'seccion' => $datos['txt_seccion']));
+                'seccion' => $datos['txt_seccion'],
+                'tipoUsuario' => 1));
         }
     }
 

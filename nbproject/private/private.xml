@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp/htdocs/tecnoBook/views/factura/editarFactura.php</file>
-            <file>file:/D:/xampp/htdocs/tecnoBook/models/factura_model.php</file>
-            <file>file:/D:/xampp/htdocs/tecnoBook/controllers/factura.php</file>
-            <file>file:/D:/xampp/htdocs/tecnoBook/controllers/usuario.php</file>
+            <file>file:/D:/xampp/htdocs/tecnoBook/models/solicitud_model.php</file>
+            <file>file:/D:/xampp/htdocs/tecnoBook/controllers/solicitud.php</file>
+            <file>file:/D:/xampp/htdocs/tecnoBook/views/solicitud/cargarSolicitud.php</file>
         </group>
     </open-files>
 </project-private>
