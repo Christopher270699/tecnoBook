@@ -1,34 +1,41 @@
 <?php
+
 class Usuario extends Controllers {
-    function __construct(){
+
+    function __construct() {
         parent::__construct();
     }
-    function agregarUsuario(){
-        $this->view->title = 'Agregar Usuario'; 
+
+    function agregarUsuario() {
+        $this->view->title = 'Agregar Usuario';
         $this->view->render('header');
         $this->view->render('usuario/agregarUsuario');
         $this->view->render('footer');
     }
-    function cargarUsuario(){
-        $this->view->title = 'Cargar Usuarios'; 
+
+    function cargarUsuario() {
+        $this->view->title = 'Cargar Usuarios';
         $this->view->render('header');
         $this->view->listaUsuarios = $this->model->listaUsuarios();
         $this->view->render('usuario/cargarUsuario');
         $this->view->render('footer');
     }
-    function editarUsuario($datos){
-        $this->view->title = 'Editar Usuario'; 
+
+    function editarUsuario($datos) {
+        $this->view->title = 'Editar Usuario';
         $this->view->render('header');
         $this->view->datosUsuario = $this->model->datosUsuario($datos);
         $this->view->render('usuario/editarUsuario');
         $this->view->render('footer');
     }
-    function eliminarUsuario($datos){
+
+    function eliminarUsuario($datos) {
         $this->view->title = 'Editar Usuario';
         $this->model->eliminarUsuario($datos);
         header("Location:" . URL . "usuario/cargarUsuario");
     }
-    function guardarUsuario(){
+
+    function guardarUsuario() {
         $datos = array();
         $datos ['txt_nombreUsuario'] = $_POST['txt_nombreUsuario'];
         $datos ['txt_password'] = $_POST['txt_password'];
@@ -39,7 +46,8 @@ class Usuario extends Controllers {
         $this->model->guardarUsuario($datos);
         header("Location:" . URL . "usuario/cargarUsuario");
     }
-    function actualizarUsuario(){
+
+    function actualizarUsuario() {
         $datos = array();
         $datos ['txt_nombreUsuario'] = $_POST['txt_nombreUsuario'];
         $datos ['txt_password'] = $_POST['txt_password'];
@@ -50,15 +58,19 @@ class Usuario extends Controllers {
         $this->model->actualizarUsuario($datos);
         header("Location:" . URL . "usuario/cargarUsuario");
     }
-    function recuperarClave(){
-        $this->view->title = 'Recuperar Password'; 
+
+    function recuperarClave() {
+        $this->view->title = 'Recuperar Password';
         $this->view->render('header');
         $this->view->render('login/recuperarClave');
         $this->view->render('footer');
     }
-    function run(){
+
+    function run() {
         //llama a la funcion run() de login_model
         $this->model->run();
     }
+
 }
+
 ?>

@@ -22,7 +22,7 @@ class Factura extends Controllers {
     }
 
     function editarFactura($datos) {
-        $this->view->title = 'Editar Libro';
+        $this->view->title = 'Editar Factura';
         $this->view->render('header');
         $this->view->datosFactura = $this->model->datosFactura($datos);
         $this->view->render('factura/editarFactura');
@@ -47,6 +47,7 @@ class Factura extends Controllers {
 
     function actualizarFactura() {
         $datos = array();
+        $datos ['txt_id'] = $_POST['txt_id'];
         $datos ['txt_nombreLibro'] = $_POST['txt_nombreLibro'];
         $datos ['txt_nombreEstudiante'] = $_POST['txt_nombreEstudiante'];
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];

@@ -4,10 +4,17 @@
 ?>
 <div class="row">
     <h1>Factura</h1>
-    <form id="MyForm" action="<?php echo URL; ?>factura/editarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <form id="MyForm" action="<?php echo URL; ?>factura/actualizarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
             <legend class="text-center">DATOS DE LA FACTURA</legend>
             <!--L2 Nombre Estudiante (Formulario Hugo)-->
+            <div class="form-group">
+                <label for="txt_id" class="col-xs-2 control-label">ID:</label>
+                <div class="col-xs-10">
+                    <input type="text" disabled="" class="form-control input-sm validate[required]"  id="txt_id" name="txt_id" value='<?php echo $this->datosFactura[0]['id']; ?>'/>
+                    <input type="hidden" id="txt_id" name="txt_id" value='<?php echo $this->datosFactura[0]['id']; ?>'/>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="txt_nombreLibro" class="col-xs-2 control-label">Nombre del Libro:</label>
                 <div class="col-xs-4">

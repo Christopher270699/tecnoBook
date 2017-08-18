@@ -8,6 +8,7 @@
             <th colspan="8" class="nombreTabla text-center">Lista de Facturas</th>
         </tr>
         <tr>
+            <th>ID</th>
             <th>Nombre del Libro</th>
             <th>Nombre del Estudiante</th>
             <th>Fecha del Pedido</th>
@@ -17,6 +18,9 @@
         <?php
         $mensaje = "'¿Desea eliminar esta factura?'";
         foreach ($this->listaFacturas as $lista => $value) {
+            echo '<td>';
+            echo $value['id'];
+            echo '</td>';
             echo '<td>';
             echo $value['nombreLibro'];
             echo '</td>';

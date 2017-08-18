@@ -28,17 +28,19 @@ Class Factura_Model extends Models {
 
     public function actualizarFactura($datos) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
-        $consultaExistenciaLibro = $this->db->select("SELECT * FROM factura "
-                . "WHERE nombreLibro = '" . $datos['txt_nombreLibro'] . "' ");
-        if ($consultaExistenciaLibro != null) {
+        $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
+                . "WHERE id = '" . $datos['txt_id'] . "' ");
+        if ($consultaExistenciaFactura != null) {
             $posData = array(
+                'id' => $datos['txt_id'],
                 'nombreLibro' => $datos['txt_nombreLibro'],
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
                 'fechaPedido' => $datos['txt_fechaPedido'],
                 'fechaEntrega' => $datos['txt_fechaEntrega']);
-            $this->db->update('factura', $posData, "`nombreLibro` = '{$datos['txt_nombreLibro']}'");
+            $this->db->update('factura', $posData, "`id` = '{$datos['txt_id']}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
+            echo $datos['txt_id'];
             echo 'Error... no existe';
             die;
         }
