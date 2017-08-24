@@ -46,13 +46,13 @@ Class Factura_Model extends Models {
         }
     }
 
-    public function eliminarFactura($datos) {
+    public function eliminarFactura($id) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE nombreLibro = '" . $datos . "' ");
+                . "WHERE id = '" . $id . "' ");
 
         if ($consultaExistenciaFactura != null) {
-            $this->db->delete('factura', "`nombreLibro` = '{$datos}'");
+            $this->db->delete('factura', "`id` = '{$id}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             echo 'Error... no existe';
@@ -69,7 +69,7 @@ Class Factura_Model extends Models {
     public function datosFactura($datos) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE nombreLibro = '" . $datos . "' ");
+                . "WHERE id = '" . $datos . "' ");
 
         if ($consultaExistenciaFactura != null) {
             return $consultaExistenciaFactura;

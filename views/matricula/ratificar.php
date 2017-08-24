@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-3">
-    Búsqueda por identificación:
+        Búsqueda por identificación:
     </div>
     <div class="col-xs-2">
         <input type="text" class="input-sm validate[required]" name="tf_cedulaEstudiante" id="tf_cedulaEstudiante" />

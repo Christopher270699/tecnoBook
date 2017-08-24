@@ -4,7 +4,7 @@
 ?>
 <div class="row">
     <h1>Solicitud</h1>
-    <form id="MyForm" action="<?php echo URL; ?>solicitud/actualizarSolicitud" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <form id="MyForm" action="<?php echo URL; ?>solicitud/revisarSolicitud" method="POST" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
             <legend class="text-center">DATOS DE LA FACTURA</legend>
             <!--L2 Nombre Estudiante (Formulario Hugo)-->

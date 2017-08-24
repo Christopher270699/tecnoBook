@@ -6,6 +6,10 @@ class Libro extends Controllers {
         parent::__construct();
     }
 
+    function buscarEstuRatif($txt_nombreLibro) {
+        $this->model->buscarLibRatif($txt_nombreLibro);
+    }
+    
     function agregarLibro() {
         $this->view->title = 'Agregar Libro';
         $this->view->render('header');

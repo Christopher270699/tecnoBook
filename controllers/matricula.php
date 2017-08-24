@@ -44,13 +44,13 @@ class Matricula extends Controllers {
 
         /* CARGAMOS TODAS LAS PROVINCIAS */
         $this->view->consultaProvincias = $this->model->consultaProvincias();
-        
+
         /* CARGAMOS TODOS LOS CANTONES */
         $this->view->consultaCantones = $this->model->consultaCantones();
-        
+
         /* CARGAMOS TODOS LOS DISTRITOS */
         $this->view->consultaDistritos = $this->model->consultaDistritos();
-        
+
         /* CARGAMOS TODAS LAS ESCUELAS */
         $this->view->consultaEscuelas = $this->model->consultaEscuelas();
 
@@ -113,13 +113,13 @@ class Matricula extends Controllers {
 
         /* CARGAMOS TODAS LAS PROVINCIAS */
         $this->view->consultaProvincias = $this->model->consultaProvincias();
-        
+
         /* CARGAMOS TODOS LOS CANTONES */
         $this->view->consultaCantones = $this->model->consultaCantones();
-        
+
         /* CARGAMOS TODOS LOS DISTRITOS */
         $this->view->consultaDistritos = $this->model->consultaDistritos();
-        
+
         /* CARGAMOS TODAS LAS ESCUELAS */
         $this->view->consultaEscuelas = $this->model->consultaEscuelas();
 
@@ -180,13 +180,13 @@ class Matricula extends Controllers {
 
         /* CARGAMOS TODAS LAS PROVINCIAS */
         $this->view->consultaProvincias = $this->model->consultaProvincias();
-        
+
         /* CARGAMOS TODOS LOS CANTONES */
         $this->view->consultaCantones = $this->model->consultaCantones();
-        
+
         /* CARGAMOS TODOS LOS DISTRITOS */
         $this->view->consultaDistritos = $this->model->consultaDistritos();
-        
+
         /* CARGAMOS TODAS LAS ESCUELAS */
         $this->view->consultaEscuelas = $this->model->consultaEscuelas();
 
@@ -199,7 +199,7 @@ class Matricula extends Controllers {
         /* CARGAMOS LA LISTA DE ESPECIALIDADES */
         $this->view->consultaEspecialidades = $this->model->consultaEspecialidades();
 
-        /* Cargo informacion del Estudiante Para Editar*/
+        /* Cargo informacion del Estudiante Para Editar */
         $this->view->infoEstudiante = $this->model->infoEstudianteEditar($cedulaEstudiante);
 
         /* Cargo informacion de la especialidad del Estudiante */
@@ -243,14 +243,14 @@ class Matricula extends Controllers {
 
         /* CARGAMOS TODAS LAS PROVINCIAS */
         $this->view->consultaProvincias = $this->model->consultaProvincias();
-        
+
         /* CARGAMOS TODOS LOS CANTONES */
         $this->view->consultaCantones = $this->model->consultaCantones();
-        
+
         /* CARGAMOS TODOS LOS DISTRITOS */
         $this->view->consultaDistritos = $this->model->consultaDistritos();
-        
-        /* CARGAMOS TODAS LAS ESCUELAS DE PRE-MATRICULA*/
+
+        /* CARGAMOS TODAS LAS ESCUELAS DE PRE-MATRICULA */
         $this->view->consultaEscuelasPrematricula = $this->model->consultaEscuelasPrematricula();
 
         /* Cargo informacion del Estudiante */
@@ -271,7 +271,7 @@ class Matricula extends Controllers {
         //Consulto Cantidad Estudiantes Matriculados
         $this->view->estadoMatricula = $this->model->estadoMatricula();
         $this->view->datosSistema = $this->model->datosSistema();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesMatriculados');
         $this->view->render('footer');
@@ -280,7 +280,7 @@ class Matricula extends Controllers {
     function listaprematricula() {
         //Consulto Cantidad Estudiantes Matriculados
         $this->view->estadoPrematricula = $this->model->estadoPrematricula();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesPrematriculados');
         $this->view->render('footer');
@@ -311,13 +311,13 @@ class Matricula extends Controllers {
 
         /* Cargo informacion de la Condicion de Matricula */
         $this->view->infoCondicionMatricula = $this->model->infoCondicionActualMatricula($cedulaEstudiante);
-        
+
         /* Cargo informacion de la especialidad del Estudiante */
         $this->view->especialidadEstudiante = $this->model->especialidadEstudiante($cedulaEstudiante);
 
         /* Cargo informacion de Adelanto/Arrastre */
         $this->view->infoAdelanta = $this->model->infoAdelanta($cedulaEstudiante);
-        
+
         $this->view->render('matricula/imprimirMatricula');
     }
 
@@ -340,7 +340,7 @@ class Matricula extends Controllers {
         $datos['tf_primaria'] = $_POST['tf_primaria'];
         $datos['sel_enfermedad'] = $_POST['sel_enfermedad'];
         $datos['tf_enfermedadDescripcion'] = $_POST['tf_enfermedadDescripcion'];
-        
+
         $datos['tf_cedulaEncargado'] = strtoupper($_POST['tf_cedulaEncargado']);
         $datos['tf_ape1Encargado'] = strtoupper($_POST['tf_ape1Encargado']);
         $datos['tf_ape2Encargado'] = strtoupper($_POST['tf_ape2Encargado']);
@@ -350,7 +350,7 @@ class Matricula extends Controllers {
         $datos['tf_ocupacionEncargado'] = $_POST['tf_ocupacionEncargado'];
         $datos['tf_emailEncargado'] = $_POST['tf_emailEncargado'];
         $datos['sel_parentesco'] = $_POST['sel_parentesco'];
-        
+
         $datos['tf_cedulaMadre'] = strtoupper($_POST['tf_cedulaMadre']);
         $datos['tf_ape1Madre'] = strtoupper($_POST['tf_ape1Madre']);
         $datos['tf_ape2Madre'] = strtoupper($_POST['tf_ape2Madre']);
@@ -358,7 +358,7 @@ class Matricula extends Controllers {
         $datos['tf_telCasaMadre'] = $_POST['tf_telCasaMadre'];
         $datos['tf_telCelMadre'] = $_POST['tf_telCelMadre'];
         $datos['tf_ocupacionMadre'] = $_POST['tf_ocupacionMadre'];
-        
+
         $datos['tf_cedulaPadre'] = strtoupper($_POST['tf_cedulaPadre']);
         $datos['tf_ape1Padre'] = strtoupper($_POST['tf_ape1Padre']);
         $datos['tf_ape2Padre'] = strtoupper($_POST['tf_ape2Padre']);
@@ -366,7 +366,7 @@ class Matricula extends Controllers {
         $datos['tf_telCasaPadre'] = $_POST['tf_telCasaPadre'];
         $datos['tf_telCelPadre'] = $_POST['tf_telCelPadre'];
         $datos['tf_ocupacionPadre'] = $_POST['tf_ocupacionPadre'];
-        
+
         $datos['tf_cedulaPersonaEmergencia'] = strtoupper($_POST['tf_cedulaPersonaEmergencia']);
         $datos['tf_ape1PersonaEmergencia'] = strtoupper($_POST['tf_ape1PersonaEmergencia']);
         $datos['tf_ape2PersonaEmergencia'] = strtoupper($_POST['tf_ape2PersonaEmergencia']);
@@ -374,7 +374,7 @@ class Matricula extends Controllers {
         $datos['tf_telHabitPersonaEmergencia'] = $_POST['tf_telHabitPersonaEmergencia'];
         $datos['tf_telcelularPersonaEmergencia'] = $_POST['tf_telcelularPersonaEmergencia'];
         $datos['sel_parentescoCasoEmergencia'] = $_POST['sel_parentescoCasoEmergencia'];
-        
+
         $datos['sl_nivelMatricular'] = $_POST['sl_nivelMatricular'];
         if ($_POST['sl_nivelMatricular'] > 9) {
             $datos['tf_especialidad'] = $_POST['tf_especialidad'];
@@ -383,13 +383,13 @@ class Matricula extends Controllers {
         $datos['sl_adelanta'] = $_POST['sl_adelanta'];
         $datos['tf_poliza'] = $_POST['tf_poliza'];
         $datos['tf_polizaVence'] = $_POST['tf_polizaVence'];
-        
+
         $this->model->guardarRatificacion($datos);
 
         //Consulto Cantidad Estudiantes Matriculados
         $this->view->estadoMatricula = $this->model->estadoMatricula();
         $this->view->datosSistema = $this->model->datosSistema();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesMatriculados');
         $this->view->render('footer');
@@ -414,7 +414,7 @@ class Matricula extends Controllers {
         $datos['tf_primaria'] = $_POST['tf_primaria'];
         $datos['sel_enfermedad'] = $_POST['sel_enfermedad'];
         $datos['tf_enfermedadDescripcion'] = $_POST['tf_enfermedadDescripcion'];
-        
+
         $datos['tf_cedulaEncargado'] = strtoupper($_POST['tf_cedulaEncargado_NI']);
         $datos['tf_ape1Encargado'] = strtoupper($_POST['tf_ape1Encargado_NI']);
         $datos['tf_ape2Encargado'] = strtoupper($_POST['tf_ape2Encargado_NI']);
@@ -424,7 +424,7 @@ class Matricula extends Controllers {
         $datos['tf_ocupacionEncargado'] = $_POST['tf_ocupacionEncargado'];
         $datos['tf_emailEncargado'] = $_POST['tf_emailEncargado'];
         $datos['sel_parentesco'] = $_POST['sel_parentesco'];
-        
+
         $datos['tf_cedulaMadre'] = strtoupper($_POST['tf_cedulaMadre_NI']);
         $datos['tf_ape1Madre'] = strtoupper($_POST['tf_ape1Madre_NI']);
         $datos['tf_ape2Madre'] = strtoupper($_POST['tf_ape2Madre_NI']);
@@ -432,7 +432,7 @@ class Matricula extends Controllers {
         $datos['tf_telCasaMadre'] = $_POST['tf_telCasaMadre'];
         $datos['tf_telCelMadre'] = $_POST['tf_telCelMadre'];
         $datos['tf_ocupacionMadre'] = $_POST['tf_ocupacionMadre'];
-        
+
         $datos['tf_cedulaPadre'] = strtoupper($_POST['tf_cedulaPadre_NI']);
         $datos['tf_ape1Padre'] = strtoupper($_POST['tf_ape1Padre_NI']);
         $datos['tf_ape2Padre'] = strtoupper($_POST['tf_ape2Padre_NI']);
@@ -440,7 +440,7 @@ class Matricula extends Controllers {
         $datos['tf_telCasaPadre'] = $_POST['tf_telCasaPadre'];
         $datos['tf_telCelPadre'] = $_POST['tf_telCelPadre'];
         $datos['tf_ocupacionPadre'] = $_POST['tf_ocupacionPadre'];
-        
+
         $datos['tf_cedulaPersonaEmergencia'] = strtoupper($_POST['tf_cedulaPersonaEmergencia_NI']);
         $datos['tf_ape1PersonaEmergencia'] = strtoupper($_POST['tf_ape1PersonaEmergencia_NI']);
         $datos['tf_ape2PersonaEmergencia'] = strtoupper($_POST['tf_ape2PersonaEmergencia_NI']);
@@ -448,7 +448,7 @@ class Matricula extends Controllers {
         $datos['tf_telHabitPersonaEmergencia'] = $_POST['tf_telHabitPersonaEmergencia'];
         $datos['tf_telcelularPersonaEmergencia'] = $_POST['tf_telcelularPersonaEmergencia'];
         $datos['sel_parentescoCasoEmergencia'] = $_POST['sel_parentescoCasoEmergencia'];
-        
+
         $datos['sl_nivelMatricular'] = $_POST['sl_nivelMatricular'];
         if ($_POST['sl_nivelMatricular'] > 9) {
             $datos['tf_especialidad'] = $_POST['tf_especialidad'];
@@ -456,13 +456,13 @@ class Matricula extends Controllers {
         $datos['sl_condicion'] = $_POST['sl_condicion'];
         $datos['tf_poliza'] = $_POST['tf_poliza'];
         $datos['tf_polizaVence'] = $_POST['tf_polizaVence'];
-        
+
         $this->model->guardarNuevoIngreso($datos);
 
         //Consulto Cantidad Estudiantes Matriculados
         $this->view->estadoMatricula = $this->model->estadoMatricula();
         $this->view->datosSistema = $this->model->datosSistema();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesMatriculados');
         $this->view->render('footer');
@@ -481,14 +481,14 @@ class Matricula extends Controllers {
         $datos['tf_provincias'] = $_POST['tf_provincias_NI'];
         $datos['tf_cantones'] = $_POST['tf_cantones_NI'];
         $datos['tf_distritos'] = $_POST['tf_distritos_NI'];
-        
+
         //Verifico si escogio la opción "Otra Esc"
-        if($_POST['tf_primaria']==9999){
-        $datos['tf_primaria'] = 0;
-        }  else {
-        $datos['tf_primaria'] = $_POST['tf_primaria'];   
+        if ($_POST['tf_primaria'] == 9999) {
+            $datos['tf_primaria'] = 0;
+        } else {
+            $datos['tf_primaria'] = $_POST['tf_primaria'];
         }
-        
+
         $datos['tf_cedulaPadre'] = strtoupper($_POST['tf_cedulaPadre']);
         $datos['tf_ape1Padre'] = strtoupper($_POST['tf_ape1Padre']);
         $datos['tf_ape2Padre'] = strtoupper($_POST['tf_ape2Padre']);
@@ -496,7 +496,7 @@ class Matricula extends Controllers {
         $datos['tf_telCelPadre'] = $_POST['tf_telCelPadre'];
         $datos['tf_telCasaPadre'] = $_POST['tf_telCasaPadre'];
         $datos['tf_ocupacionPadre'] = $_POST['tf_ocupacionPadre'];
-        
+
         $datos['tf_cedulaMadre'] = strtoupper($_POST['tf_cedulaMadre']);
         $datos['tf_ape1Madre'] = strtoupper($_POST['tf_ape1Madre']);
         $datos['tf_ape2Madre'] = strtoupper($_POST['tf_ape2Madre']);
@@ -504,18 +504,19 @@ class Matricula extends Controllers {
         $datos['tf_telCelMadre'] = $_POST['tf_telCelMadre'];
         $datos['tf_telCasaMadre'] = $_POST['tf_telCasaMadre'];
         $datos['tf_ocupacionMadre'] = $_POST['tf_ocupacionMadre'];
-        
+
         $this->model->guardarPrematricula($datos);
 
         //Consulto Cantidad Estudiantes Matriculados
         $this->view->estadoPrematricula = $this->model->estadoPrematricula();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesPrematriculados');
         $this->view->render('footer');
     }
 
     /* Metodos */
+
     //Carga los cantones de una Provincia en especifico
     function cargaCantones($idProvincia) {
         $this->model->cargaCantones($idProvincia);
@@ -525,10 +526,9 @@ class Matricula extends Controllers {
     function cargaDistritos($idCanton) {
         $this->model->cargaDistritos($idCanton);
     }
-    
+
     //Carga las escuela//
-    function cargaEscuela($idDistrito)
-    {
+    function cargaEscuela($idDistrito) {
         $this->model->cargaEscuela($idDistrito);
     }
 
@@ -567,7 +567,7 @@ class Matricula extends Controllers {
     //Metodo para buscar estudiantes matriculados, pero sin Seccion-Grupo asignada//
     function estudiantesMatriculadosSinGrupo() {
         $this->view->estudiantesMatriculadosSinGrupo = $this->model->estudiantesMatriculadosSinGrupo();
-        
+
         $this->view->render('header');
         $this->view->render('matricula/estudiantesMatriculadosSinGrupo');
         $this->view->render('footer');
@@ -590,23 +590,26 @@ class Matricula extends Controllers {
         $this->view->render('matricula/asignarSeccion');
         $this->view->render('footer');
     }
-    
-    /* Carga los Grupos de un nivel en especifico*/
+
+    /* Carga los Grupos de un nivel en especifico */
+
     function cargaGrupos($idNivel) {
         $this->model->cargaGrupos($idNivel);
     }
-    
-    /* Carga los SubGrupos de un nivel en especifico*/
+
+    /* Carga los SubGrupos de un nivel en especifico */
+
     function cargaSubGrupos() {
-        $consulta = array();      
+        $consulta = array();
         $consulta['nivelSeleccionado'] = $_POST['nivelSeleccionado'];
         $consulta['grupoSeleccionado'] = $_POST['grupoSeleccionado'];
         $this->model->cargaSubGrupos($consulta);
     }
-    
-    /* Guardo la nueva seccion del estudiante*/
+
+    /* Guardo la nueva seccion del estudiante */
+
     function guardarAsignarSeccion() {
-        $datos = array();      
+        $datos = array();
         $datos['ced_estudiante'] = $_POST['ced_estudiante'];
         $datos['nivel'] = $_POST['sl_NivelesAsignarSeccion'];
         $datos['grupo'] = $_POST['sl_GruposAsignarSeccion'];
@@ -624,6 +627,7 @@ class Matricula extends Controllers {
         $this->view->render('matricula/eliminarMatricula');
         $this->view->render('footer');
     }
+
 }
 
 ?>

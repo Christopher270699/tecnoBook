@@ -62,21 +62,24 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Libro <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="<?php echo URL; ?>libro/cargarLibros">Cargar Libros</a></li>
                                             <?php if (Session::get('tipoUsuario') < 1) { ?>
                                                 <li><a href="<?php echo URL; ?>libro/agregarLibro">Agregar Libro</a></li>
                                             <?php } ?>
+                                            <li><a href="<?php echo URL; ?>libro/cargarLibros">Lista de Libros</a></li>
                                         </ul>
                                     </li>
-                                    <?php if (Session::get('tipoUsuario') > 0) { ?>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Solicitud <span class="caret"></span></a>
-                                            <ul class="dropdown-menu" role="menu">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Solicitud <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php if (Session::get('tipoUsuario') > 0) { ?>
                                                 <li><a href="<?php echo URL; ?>solicitud/agregarSolicitud">Agregar Solicitud</a></li>
                                                 <li><a href="<?php echo URL; ?>solicitud/cargarSolicitud">Lista de Solicitudes</a></li>
-                                            </ul>
-                                        </li>
-                                    <?php } ?>
+                                            <?php } ?>
+                                            <?php if (Session::get('tipoUsuario') < 1) { ?>
+                                                <li><a href="<?php echo URL; ?>solicitud/cargarSolicitud">Aceptar Solicitud</a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </li>
                                     <?php if (Session::get('tipoUsuario') < 1) { ?>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuario <span class="caret"></span></a>

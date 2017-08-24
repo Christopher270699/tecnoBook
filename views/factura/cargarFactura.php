@@ -34,8 +34,8 @@
             echo $value['fechaEntrega'];
             echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-warning" href="editarFactura/' . $value['nombreLibro'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="eliminarFactura/' . $value['nombreLibro'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
+            echo '<a class="btn-sm btn-warning" href="editarFactura/' . $value['id'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
+            echo '<a class="btn-sm btn-danger" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
             echo '</td>';
             echo '</tr>';
         }

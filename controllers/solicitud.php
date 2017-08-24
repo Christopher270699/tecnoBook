@@ -4,6 +4,7 @@ class Solicitud extends Controllers {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('solicitud/js/jsSolicitud.js');
     }
 
     function agregarSolicitud() {
@@ -11,6 +12,12 @@ class Solicitud extends Controllers {
         $this->view->render('header');
         $this->view->render('solicitud/agregarSolicitud');
         $this->view->render('footer');
+    }
+    
+    function aceptarSolicitud($id) {
+        $this->view->title = 'Aceptar Solicitud';
+        $this->model->aceptarSolicitud($id);
+        header("Location:" . URL . "solicitud/cargarSolicitud");
     }
 
     function cargarSolicitud() {
@@ -29,10 +36,10 @@ class Solicitud extends Controllers {
         $this->view->render('footer');
     }
 
-    function eliminarSolicitud($datos) {
+    function eliminarSolicitud($id) {
         $this->view->title = 'Editar Solicitud';
-        $this->model->eliminarSolicitud($datos);
-        header("Location:" . URL . "factura/cargarFactura");
+        $this->model->eliminarSolicitud($id);
+        header("Location:" . URL . "solicitud/cargarSolicitud");
     }
 
     function guardarSolicitud() {
@@ -42,7 +49,7 @@ class Solicitud extends Controllers {
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
         $this->model->guardarSolicitud($datos);
-        header("Location:" . URL . "factura/cargarFactura");
+        header("Location:" . URL . "solicitud/cargarSolicitud");
     }
 
     function actualizarSolicitud() {
@@ -53,7 +60,7 @@ class Solicitud extends Controllers {
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
         $this->model->actualizarSolicitud($datos);
-        header("Location:" . URL . "factura/cargarFactura");
+        header("Location:" . URL . "solicitud/cargarSolicitud");
     }
 
     function recuperarClave() {

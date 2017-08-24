@@ -4,6 +4,7 @@ class Factura extends Controllers {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('factura/js/jsFactura.js');
     }
 
     function agregarFactura() {
@@ -29,9 +30,9 @@ class Factura extends Controllers {
         $this->view->render('footer');
     }
 
-    function eliminarFactura($datos) {
+    function eliminarFactura($id) {
         $this->view->title = 'Editar Factura';
-        $this->model->eliminarFactura($datos);
+        $this->model->eliminarFactura($id);
         header("Location:" . URL . "factura/cargarFactura");
     }
 

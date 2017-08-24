@@ -34,8 +34,14 @@
             echo $value['fechaEntrega'];
             echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-warning" href="editarFactura/' . $value['nombreLibro'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="eliminarFactura/' . $value['nombreLibro'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
+            if (Session::get('tipoUsuario') > 0) {
+                echo '<a class="btn-sm btn-warning" href="editarSolicitud/' . $value['id'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
+                echo '<a class="btn-sm btn-danger" href="eliminarSolicitud/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
+            }
+            if (Session::get('tipoUsuario') < 1) {
+                echo '<a class="btn-sm btn-primary" href="aceptarSolicitud/' . $value['id'] . '">Aceptar</a> &nbsp; &nbsp; &nbsp;';
+                echo '<a class="btn-sm btn-danger" href="eliminarSolicitud/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Rechazar</a>';
+            }
             echo '</td>';
             echo '</tr>';
         }
