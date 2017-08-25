@@ -6,7 +6,12 @@ Class Solicitud_Model extends Models {
         parent::__construct();
     }
 
-    /* Inserta estudiante Nuevo Solicitud en la BD */
+    public function listaLibros() {
+        //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
+        $consultaListaLibros = $this->db->select("SELECT * FROM libro "
+                . "ORDER BY titulo");
+        return $consultaListaLibros;
+    }
 
     public function guardarSolicitud($datos) {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
@@ -96,12 +101,13 @@ Class Solicitud_Model extends Models {
     public function datosSolicitud($datos) {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaSolicitud = $this->db->select("SELECT * FROM solicitud "
-                . "WHERE nombreLibro = '" . $datos . "' ");
+                . "WHERE id = '" . $datos . "' ");
 
         if ($consultaExistenciaSolicitud != null) {
             return $consultaExistenciaSolicitud;
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
+            echo $datos['txt_id'];
             echo 'Ni madres...';
             die;
         }

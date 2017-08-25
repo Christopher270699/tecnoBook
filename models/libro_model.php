@@ -6,13 +6,13 @@ Class Libro_Model extends Models {
         parent::__construct();
     }
 
-    public function buscarLibRatif($txt_nombreLibro) {
-        $resultado = $this->db->select("SELECT e.cedula,e.nombre,e.apellido1,e.apellido2,g.nivel,g.grupo,g.sub_grupo "
-                . "FROM sipce_estudiante as e, sipce_grupos as g "
-                . "WHERE e.cedula NOT IN (select ced_estudiante from sipce_matricularatificacion WHERE anio = " . $this->datosSistema[0]['annio_lectivo'] . ") "
-                . "AND e.cedula = g.ced_estudiante "
-                . "AND e.cedula = '" . $ced_estudiante . "'"
-                . "AND g.annio = " . ($this->datosSistema[0]['annio_lectivo'] - 1) . " ");
+    /* BUSCADOR */
+    /* Retorna Datos de Estudiante por Ratificar */
+
+    public function buscarLibro($titulo) {
+        $resultado = $this->db->select("SELECT * "
+                . "FROM libro "
+                . "WHERE titulo = '" . $titulo . "'");
 
         echo json_encode($resultado);
     }

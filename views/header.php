@@ -64,8 +64,11 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <?php if (Session::get('tipoUsuario') < 1) { ?>
                                                 <li><a href="<?php echo URL; ?>libro/agregarLibro">Agregar Libro</a></li>
+                                                <li><a href="<?php echo URL; ?>libro/cargarLibros">Lista de Libros</a></li>
                                             <?php } ?>
-                                            <li><a href="<?php echo URL; ?>libro/cargarLibros">Lista de Libros</a></li>
+                                            <?php if (Session::get('tipoUsuario') >= 1) { ?>
+                                                <li><a href="<?php echo URL; ?>libroNormal/cargarLibros">Lista de Libros</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -229,10 +232,10 @@
             <div class="col-xs-8 text-center">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2>Aplicación bla bla bla</h1>
-                            <h4><p class="text-success">Colegio Técnico Profesional de Carrizal, Dirección Regional de Alajuela Circuito -01-</p></h4>
-                            <h4><p class="text-succes">Telefax: 2483-0055</p></h4>
-                            <!--<label id="datetime" size="50"></label>-->
+                        <h2>TECNO-BOOK</h2>
+                        <h4><p class="text-success">Colegio Técnico Profesional de Carrizal, Dirección Regional de Alajuela Circuito -01-</p></h4>
+                        <h4><p class="text-succes">Telefax: 2483-0055</p></h4>
+                        <!--<label id="datetime" size="50"></label>-->
                     </div>
                 </div>
             </div>

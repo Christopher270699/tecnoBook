@@ -4,12 +4,15 @@ class Libro extends Controllers {
 
     function __construct() {
         parent::__construct();
+        Auth::handleLogin();
+        Auth::securityLevel();
+        $this->view->js = array('libro/js/jsLibro.js');
     }
 
-    function buscarEstuRatif($txt_nombreLibro) {
-        $this->model->buscarLibRatif($txt_nombreLibro);
+    function buscarLibro($titulo) {
+        $this->model->buscarLibro($titulo);
     }
-    
+
     function agregarLibro() {
         $this->view->title = 'Agregar Libro';
         $this->view->render('header');

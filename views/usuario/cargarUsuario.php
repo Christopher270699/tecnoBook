@@ -5,16 +5,17 @@
 <center>
     <table class="table table-condensed">
         <tr>
-            <th colspan="8" class="nombreTabla text-center">Lista de Usuarios</th>
+            <th colspan="10" class="nombreTabla text-center">Lista de Usuarios</th>
         </tr>
         <tr>
             <th>N°</th>
             <th>Nombre de Usuario</th>
             <th>Contraseña</th>
+            <th>Nombre Completo</th>
             <th>Cédula</th>
-            <th>Correo</th>
+            <th>Correo Electrónico</th>
             <th>Télefono</th>
-            <th>Seccion</th>
+            <th>Sección</th>
             <th colspan="2" class="text-center">Acción</th>
         </tr>
         <?php
@@ -30,6 +31,9 @@
             echo '</td>';
             echo '<td>';
             echo $value['password'];
+            echo '</td>';
+            echo '<td>';
+            echo $value['nombre'];
             echo '</td>';
             echo '<td>';
             echo $value['cedula'];
@@ -52,10 +56,10 @@
         }
         ?>
         <tr>
-            <td colspan='8' class="lineaFin"></td>
+            <td colspan='10' class="lineaFin"></td>
         </tr>
         <tr>
-            <td colspan='8'>Última Línea</td>
+            <td colspan='10'>Última Línea</td>
         </tr>
     </table>
 </center>

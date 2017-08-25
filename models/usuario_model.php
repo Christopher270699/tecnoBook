@@ -35,9 +35,10 @@ Class Usuario_Model extends Models {
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
                 . "WHERE nombreUsuario = '" . $datos['txt_nombreUsuario'] . "' ");
         if ($consultaExistenciaUsuario != null) {
+            $pass = Hash::create('md5', $datos['txt_password'], HASH_PASSWORD_KEY);
             $posData = array(
                 'nombreUsuario' => $datos['txt_nombreUsuario'],
-                'password' => $datos['txt_password'],
+                'password' => $pass,
                 'cedula' => $datos['txt_cedula'],
                 'correo' => $datos['txt_correo'],
                 'telefono' => $datos['txt_telefono'],

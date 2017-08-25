@@ -4,16 +4,18 @@ class Solicitud extends Controllers {
 
     function __construct() {
         parent::__construct();
+        Auth::handleLogin();
         $this->view->js = array('solicitud/js/jsSolicitud.js');
     }
 
     function agregarSolicitud() {
         $this->view->title = 'Agregar Solicitud';
         $this->view->render('header');
+        $this->view->listaLibros = $this->model->listaLibros();
         $this->view->render('solicitud/agregarSolicitud');
         $this->view->render('footer');
     }
-    
+
     function aceptarSolicitud($id) {
         $this->view->title = 'Aceptar Solicitud';
         $this->model->aceptarSolicitud($id);
@@ -42,14 +44,31 @@ class Solicitud extends Controllers {
         header("Location:" . URL . "solicitud/cargarSolicitud");
     }
 
+    function volverFormulario() {
+        $this->view->title = 'Agregar Solicitud';
+        $this->view->render('header');
+        $this->view->render('solicitud/agregarSolicitud');
+        $this->view->render('footer');
+    }
+
     function guardarSolicitud() {
         $datos = array();
         $datos ['txt_nombreLibro'] = $_POST['txt_nombreLibro'];
         $datos ['txt_nombreEstudiante'] = $_POST['txt_nombreEstudiante'];
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
-        $this->model->guardarSolicitud($datos);
-        header("Location:" . URL . "solicitud/cargarSolicitud");
+        $fechaIngreso = new DateTime($datos['txt_fechaPedido']);
+        $fechaSalida = new DateTime($datos['txt_fechaEntrega']);
+        $diferenciaDias = $fechaIngreso->diff($fechaSalida);
+        if ((int) $diferenciaDias->format('%R%a') < 0 || (int) $diferenciaDias->format('%R%a') > 14) {
+            $this->view->title = 'ERROR';
+            $this->view->render('header');
+            $this->view->render('error/errorFechas');
+            $this->view->render('footer');
+        } else {
+            $this->model->guardarSolicitud($datos);
+            header("Location:" . URL . "solicitud/cargarSolicitud");
+        }
     }
 
     function actualizarSolicitud() {

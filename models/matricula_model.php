@@ -299,16 +299,16 @@ class Matricula_Model extends Models {
                         . "WHERE ced_estudiante = '" . $cedulaEstudiante . "' ");
     }
 
-    /* Retorna enfermedades del Estudiante curso vigente*/
+    /* Retorna enfermedades del Estudiante curso vigente */
 
     public function enfermedadEstudiante($cedulaEstudiante) {
         return $this->db->select("SELECT descripcion "
                         . "FROM sipce_enfermedades  "
                         . "WHERE cedula = '" . $cedulaEstudiante . "' "
-                        . "AND anio = " . ($this->datosSistema[0]['annio_lectivo'] -1 ). " ");
+                        . "AND anio = " . ($this->datosSistema[0]['annio_lectivo'] - 1 ) . " ");
     }
 
-    /* Retorna enfermedades del Estudiante curso nuevo*/
+    /* Retorna enfermedades del Estudiante curso nuevo */
 
     public function enfermedadEstudianteActual($cedulaEstudiante) {
         return $this->db->select("SELECT descripcion "
@@ -349,7 +349,7 @@ class Matricula_Model extends Models {
         return $this->db->select("SELECT condicion "
                         . "FROM sipce_matricularatificacion "
                         . "WHERE ced_estudiante = '" . $cedulaEstudiante . "' "
-                        . "AND anio = '" . ($this->datosSistema[0]['annio_lectivo'] -1 ). "'");
+                        . "AND anio = '" . ($this->datosSistema[0]['annio_lectivo'] - 1 ) . "'");
     }
 
     /* Carga la condicion del estudiante Actual, para editar */

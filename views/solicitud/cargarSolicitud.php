@@ -13,6 +13,7 @@
             <th>Nombre del Estudiante</th>
             <th>Fecha del Pedido</th>
             <th>Fecha de Entrega</th>
+            <th>Tiempo del Préstamo</th>
             <th colspan="2" class="text-center">Acción</th>
         </tr>
         <?php
@@ -32,6 +33,14 @@
             echo '</td>';
             echo '<td>';
             echo $value['fechaEntrega'];
+            echo '</td>';
+            echo '<td>';
+            //FECHAS
+            $fechaIngreso = new DateTime($value['fechaPedido']);
+            $fechaSalida = new DateTime($value['fechaEntrega']);
+            //PRIMERA FORMA
+            $diferenciaDias = $fechaIngreso->diff($fechaSalida);
+            echo $diferenciaDias->format('%R%a día(s)');
             echo '</td>';
             echo '<td class = text-center>';
             if (Session::get('tipoUsuario') > 0) {

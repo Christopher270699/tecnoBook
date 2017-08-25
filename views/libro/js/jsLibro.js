@@ -1,11 +1,37 @@
+$.datepicker.regional['es'] = {
+    closeText: 'Cerrar',
+    prevText: '<Ant',
+    nextText: 'Sig>',
+    currentText: 'Hoy',
+    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+    dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+    dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+    weekHeader: 'Sm',
+    dateFormat: 'dd/mm/yy',
+    firstDay: 1,
+    isRTL: false,
+    showMonthAfterYear: false,
+    yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+
 $(function ()
-{//Carga los datos del Estudiante//
-    $("#buscarLibroRatificar").click(function (event) {
-        var idD = $("#txt_nombreLibro").val();
-        alert(1);
-        $.getJSON('buscarLibRatif/' + idD, function (resulBusqueda) {
+{
+    //FECHAS
+    $("#txt_fechaPublicacion").datepicker({dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true
+    });
+
+    //BUSCADOR//
+    $("#buscarTituloLibro").click(function (event) {
+        var idD = $("#tf_titulo").val();
+        $.getJSON('buscarLibro/' + idD, function (resulBusqueda) {
             if (jQuery.isEmptyObject(resulBusqueda)) {
-                alert("Persona no encontrada, verifique el formato (ceros y guiones) y número de identificación.\nEj: 2-0456-0789, 1-1122-0567.\nNota: La Base de Datos esta actualizada al 2013 y solo posee Costarricenses y Nacionalizados");
+                alert("Libro no encontrado.");
             } else {
                 $("#tablaRatificar").empty();
                 $('#tablaRatificar').append('<tr><td colspan="5" class="nombreTabla">LISTA DE ESTUDIANTES POR RATIFICAR</td></tr><tr><th>N°</th><th>Identificación</th><th>1º Apellido</th><th>2º Apellido</th><th>Nombre</th><th>Nivel</th><th>Grupo</th><th>Subgrupo</th><th>Acción</th></tr>' +
