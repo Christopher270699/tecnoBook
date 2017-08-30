@@ -5,12 +5,12 @@ class LibroNormal extends Controllers {
     function __construct() {
         parent::__construct();
         Auth::handleLogin();
-        $this->view->js = array('libroNormal/js/jsLibro.js');
+        $this->view->js = array('libroNormal/js/jsLibroNormal.js');
     }
 
-    function buscarLibRatif($txt_nombreLibro) {
-        $this->model->buscarLibRatif($txt_nombreLibro);
-    }
+     function buscarEstuRatif($ced_estudiante) {
+        $this->model->buscarEstuRatif($ced_estudiante);
+    }   
 
     function cargarLibros() {
         $this->view->title = 'Cargar Libros';

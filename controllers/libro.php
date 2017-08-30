@@ -9,8 +9,8 @@ class Libro extends Controllers {
         $this->view->js = array('libro/js/jsLibro.js');
     }
 
-    function buscarLibro($titulo) {
-        $this->model->buscarLibro($titulo);
+    function buscarEstuRatif($ced_estudiante) {
+        $this->model->buscarEstuRatif($ced_estudiante);
     }
 
     function agregarLibro() {

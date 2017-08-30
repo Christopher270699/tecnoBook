@@ -4,6 +4,12 @@ class Usuario extends Controllers {
 
     function __construct() {
         parent::__construct();
+        Auth::handleLogin();
+        $this->view->js = array('usuario/js/jsUsuario.js');
+    }
+
+    function buscarEstuRatif($ced_estudiante) {
+        $this->model->buscarEstuRatif($ced_estudiante);
     }
 
     function agregarUsuario() {
@@ -39,6 +45,7 @@ class Usuario extends Controllers {
         $datos = array();
         $datos ['txt_nombreUsuario'] = $_POST['txt_nombreUsuario'];
         $datos ['txt_password'] = $_POST['txt_password'];
+        $datos ['txt_nombre'] = $_POST['txt_nombre'];
         $datos ['txt_cedula'] = $_POST['txt_cedula'];
         $datos ['txt_correo'] = $_POST['txt_correo'];
         $datos ['txt_telefono'] = $_POST['txt_telefono'];
@@ -51,6 +58,7 @@ class Usuario extends Controllers {
         $datos = array();
         $datos ['txt_nombreUsuario'] = $_POST['txt_nombreUsuario'];
         $datos ['txt_password'] = $_POST['txt_password'];
+        $datos ['txt_nombre'] = $_POST['txt_nombre'];
         $datos ['txt_cedula'] = $_POST['txt_cedula'];
         $datos ['txt_correo'] = $_POST['txt_correo'];
         $datos ['txt_telefono'] = $_POST['txt_telefono'];

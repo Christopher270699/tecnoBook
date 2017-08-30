@@ -7,13 +7,11 @@ Class Libro_Model extends Models {
     }
 
     /* BUSCADOR */
-    /* Retorna Datos de Estudiante por Ratificar */
 
-    public function buscarLibro($titulo) {
+    public function buscarEstuRatif($ced_estudiante) {
         $resultado = $this->db->select("SELECT * "
                 . "FROM libro "
-                . "WHERE titulo = '" . $titulo . "'");
-
+                . "WHERE titulo LIKE '%" . $ced_estudiante . "%'");
         echo json_encode($resultado);
     }
 

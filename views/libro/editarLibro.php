@@ -17,7 +17,7 @@
                 <div class="col-xs-2">
                     <input type="text" class="form-control input-sm"  id="txt_autor" name="txt_autor" value='<?php echo $this->datosLibro[0]['autor']; ?>'/>
                 </div>
-                <label for="txt_categoria" class="col-xs-2 control-label">Categoría:</label>
+                <label for="txt_categoria" class="col-xs-2 control-label">Descriptor:</label>
                 <div class="col-xs-2">
                     <input type="text" class="form-control input-sm validate[required]"  id="txt_categoria" name="txt_categoria" value='<?php echo $this->datosLibro[0]['categoria']; ?>'/>
                 </div>

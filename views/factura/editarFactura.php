@@ -6,7 +6,7 @@
     <h1>Factura</h1>
     <form id="MyForm" action="<?php echo URL; ?>factura/actualizarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
-            <legend class="text-center">DATOS DE LA FACTURA</legend>
+            <legend class="text-center">DATOS DEL PRÉSTAMO</legend>
             <!--L2 Nombre Estudiante (Formulario Hugo)-->
             <div class="form-group">
                 <label for="txt_id" class="col-xs-2 control-label">ID:</label>

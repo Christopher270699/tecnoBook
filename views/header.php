@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title><?= (isset($this->title)) ? $this->title : ''; ?></title>
-        <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap-Paper-337.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap-flatly.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="<?php echo URL; ?>public/css/bootstrap-responsive.min.css">
@@ -95,92 +95,20 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Factura <span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Préstamo <span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="<?php echo URL; ?>factura/agregarFactura">Agregar Factura</a></li>
-                                                <li><a href="<?php echo URL; ?>factura/cargarFactura">Lista de Facturas</a></li>
+                                                <li><a href="<?php echo URL; ?>factura/agregarFactura">Agregar Préstamo</a></li>
+                                                <li><a href="<?php echo URL; ?>factura/cargarFactura">Lista de Préstamos</a></li>
                                             </ul>
                                         </li>
-                                        <?php if (Session::get('tipoUsuario') <= 3) { ?>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Estudiantes <span class="caret"></span></a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="<?php echo URL; ?>persona/listaEstudiantes">Lista Estudiante</a></li>
-                                                    <li class="divider"></li>
-                                                    <?php if (Session::get('tipoUsuario') <= 2) { ?>
-                                                        <li><a href="<?php echo URL; ?>persona/datosEstudiantes">Datos Generales Estudiantes</a></li>
-                                                        <li><a href="<?php echo URL; ?>persona/nuevoIngresoTardio">Nuevo Ingreso</a></li>
-                                                        <li><a href="<?php echo URL; ?>persona/expedientesEstudiantes">Expedientes de Estudiantes</a></li>
-                                                        <li class="divider"></li>
-                                                    <?php } if (Session::get('tipoUsuario') <= 3) { ?>
-                                                        <li><a href="<?php echo URL; ?>persona/ingresarBeca">Ingresar beca transporte de Estudiantes</a></li>
-                                                        <li><a href="<?php echo URL; ?>persona/listaBecas">Lista becas transporte de Estudiantes</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="<?php echo URL; ?>persona/ingresarBecaComedor">Ingresar beca comedor de Estudiantes</a></li>
-                                                        <li><a href="<?php echo URL; ?>persona/listaBecasComedor">Lista becas comedor de Estudiantes</a></li>
-                                                    <?php } ?>
-                                                </ul>
-                                            </li>
-                                        <?php } ?>
-                                        <?php if (Session::get('tipoUsuario') <= 3) { ?>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Matrícula <span class="caret"></span></a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <?php if (Session::get('tipoUsuario') == 1) { ?>
-                                                        <li><a href="<?php echo URL; ?>matricula/prematricula">Pre-Matricula</a></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/listaprematricula">Lista Pre-Matricula</a></li>
-                                                        <li class="divider"></li>
-                                                    <?php } if (Session::get('tipoUsuario') <= 3) { ?>
-                                                        <li><a href="<?php echo URL; ?>matricula/ratificarSetimo">Ratificar 7°</a></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/ratificar">Ratificar 8° - 12°</a></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/nuevoIngreso">Nuevo Ingreso</a></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/estudiantesMatriculados">Ver estudainte matriculados</a></li>
-                                                    <?php } ?>
-                                                    <?php if (Session::get('tipoUsuario') <= 2) { ?>
-                                                        <li class="divider"></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/estudiantesMatriculadosSinGrupo">Matriculados Sin Grupo Asignado</a></li>
-                                                        <li><a href="<?php echo URL; ?>estadistica/matriculaInicialSegunEdad">Matricula Inicial Segun Edad</a></li>
-                                                        <li><a href="<?php echo URL; ?>estadistica/matriculaInicialSegunRepitencia">Matricula Inicial Segun Repitencia</a></li>
-                                                        <li><a href="<?php echo URL; ?>estadistica/matriculaInicialSegunModalidad">Matricula Inicial Segun Modalidad</a></li>
-                                                        <li><a href="<?php echo URL; ?>estadistica/lugarDeResidencia">Estadistica Lugar De Residencia</a></li>
-                                                        <li><a href="<?php echo URL; ?>matricula/resumenCondicionEstudiantes">Resumen Condición Estudiantes</a></li>
-                                                        <li><a href="<?php echo URL; ?>estadistica/estudiantesExtrangeros">Estudiantes extrangeros</a></li>
-                                                    <?php } ?>
-                                                </ul>
-                                            </li>
-                                        <?php } ?>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ausencias <span class="caret"></span></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <?php if (Session::get('tipoUsuario') <= 2) { ?>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/cargarAusencias">Cargar Ausencias</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/verAusencias">Ver Ausencias</a></li>
-                                                <?php } if (Session::get('tipoUsuario') == 4) { ?>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/consultarAusencias">Consultar Ausencias</a></li>
-                                                <?php } ?>
-                                            </ul>
-                                        </li>
-                                        <?php if (Session::get('tipoUsuario') == 1) { ?>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrador <span class="caret"></span></a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/ingresarPersonal">Ingresar Personal</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/listaEstudiantesEspecialidad">Lista de Estudiantes Matriculados</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/proyeccionMatricula">Proyección</a></li>
-                                                    <li><a href="<?php echo URL; ?>seccion/indexConfigSecciones">Configuración Secciones</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/cargaEstudiantesSeccion">Carga Estudiantes-Seccion</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/index">Actualizar cédulas BD</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/actuPasswordEstu">Reiniciar contraseñas Estudaintes</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/actuPasswordDocente">Reiniciar contraseñas Docente</a></li>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/estudiantesVoca">Estudiantes Voca</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="<?php echo URL; ?>persona/modificarCedulaEstudiante">Modificar cédula de estudiante</a></li>
-                                                    <li><a href="<?php echo URL; ?>configSistema/index">Configuración del Sistema</a></li>
-                                                </ul>
-                                            </li>
-                                        <?php } ?>
                                     <?php } ?>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contacto <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="<?php echo URL; ?>contacto/acercaDe">Acerca de Nosotros...</a></li>
+                                            <li><a href="<?php echo URL; ?>contacto/sugerencia">Enviar Sugerencia</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown">
@@ -225,14 +153,17 @@
         <br><br><br>
         <!--Contenido para mostrar todas las paginas-->
         <div class="row">
-            <div class="col-xs-1"></div>
             <div class="col-xs-1">
+
+            </div>
+            <div class="col-xs-1">
+                <br>
                 <img src="<?php echo URL; ?>public/img/IconoTecnoBook.jpg" alt="Logo Empresa" class="img-rounded pull-left img-responsive">
             </div>
             <div class="col-xs-8 text-center">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2>TECNO-BOOK</h2>
+                        <h1><strong>TECNO-BOOK</strong></h1>
                         <h4><p class="text-success">Colegio Técnico Profesional de Carrizal, Dirección Regional de Alajuela Circuito -01-</p></h4>
                         <h4><p class="text-succes">Telefax: 2483-0055</p></h4>
                         <!--<label id="datetime" size="50"></label>-->
@@ -240,6 +171,7 @@
                 </div>
             </div>
             <div class="col-xs-1">
+                <br>
                 <img src="<?php echo URL; ?>public/img/logoctpcarrizal.png" alt="Logo CTPC" class="img-rounded pull-right img-responsive">
             </div>
             <div class="col-xs-1"></div>

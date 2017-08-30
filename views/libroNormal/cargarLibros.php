@@ -3,23 +3,21 @@
 //die;
 ?>
 <center>
+    <!--BUSCADOR-->
     <div class="container">
-        <!--BUSCADOR-->
-        <div class="col-xs-4">
-            Búsqueda por identificación:
+        <label for="txt_buscarDatos" class="col-xs-2 control-label">Buscar Libro:</label>
+        <div class="col-xs-8">
+            <input type="text" class="col-xs-12 input-sm validate[required]" name="tf_cedulaEstudiante" id="tf_cedulaEstudiante"/>
         </div>
         <div class="col-xs-2">
-            <input type="text" class="input-sm validate[required]" name="txt_nombreLibro" id="txt_nombreLibro" />
+            <input type="button" class="col-xs-12 btn-sm btn-success" id="buscarEstudianteRatificar" value="Buscar"/>
         </div>
-        <div class="col-xs-2">
-            <input type="button" class="btn-sm btn-success" id="buscarLibroRatificar" value="Buscar" />
-        </div>
-        <div class="col-xs-offset-5"></div>
-        <div class="col-xs-12"><br></div>
-        <div class="col-lg-10 col-xs-12"></div>
     </div>
+    <div class="col-xs-offset-6"></div>
+    <div class="col-xs-12"><br></div>
+    <div class="col-lg-10 col-xs-12"></div>
     <!--TABLA-->
-    <table class="table table-condensed">
+    <table class="table table-condensed" id="tablaRatificar">
         <tr>
             <th colspan="8" class="nombreTabla text-center">Lista de Libros</th>
         </tr>

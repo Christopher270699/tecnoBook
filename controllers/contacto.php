@@ -1,15 +1,16 @@
 <?php
 
-class Login extends Controllers {
+class Contacto extends Controllers {
 
     function __construct() {
         parent::__construct();
+        Auth::handleLogin();
     }
 
-    function index() {
-        $this->view->title = 'Iniciar sesión';
+    function acercaDe() {
+        $this->view->title = 'Acerca De...';
         $this->view->render('header');
-        $this->view->render('login/index');
+        $this->view->render('contacto/acercaDe');
         $this->view->render('footer');
     }
 

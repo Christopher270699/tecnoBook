@@ -6,6 +6,13 @@ Class Factura_Model extends Models {
         parent::__construct();
     }
 
+    public function listaLibros() {
+        //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
+        $consultaListaLibros = $this->db->select("SELECT * FROM libro "
+                . "ORDER BY titulo");
+        return $consultaListaLibros;
+    }
+
     /* Inserta estudiante Nuevo Factura en la BD */
 
     public function guardarFactura($datos) {

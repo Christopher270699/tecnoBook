@@ -20,31 +20,31 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
 $(function ()
 {
-    //FECHAS
+    //Fecha Nacimiento//
     $("#txt_fechaPublicacion").datepicker({dateFormat: 'yy-mm-dd',
         changeMonth: true,
         changeYear: true
     });
 
-    //BUSCADOR//
-    $("#buscarTituloLibro").click(function (event) {
-        var idD = $("#tf_titulo").val();
-        $.getJSON('buscarLibro/' + idD, function (resulBusqueda) {
+    //Carga los datos del Estudiante//
+    $("#buscarEstudianteRatificar").click(function (event) {
+        var idD = $("#tf_cedulaEstudiante").val();
+        $.getJSON('buscarEstuRatif/' + idD, function (resulBusqueda) {
             if (jQuery.isEmptyObject(resulBusqueda)) {
-                alert("Libro no encontrado.");
+                alert("El libro a buscar no ha sido encontrado.\nPor favor, veifique los datos ingresados.");
             } else {
                 $("#tablaRatificar").empty();
-                $('#tablaRatificar').append('<tr><td colspan="5" class="nombreTabla">LISTA DE ESTUDIANTES POR RATIFICAR</td></tr><tr><th>N°</th><th>Identificación</th><th>1º Apellido</th><th>2º Apellido</th><th>Nombre</th><th>Nivel</th><th>Grupo</th><th>Subgrupo</th><th>Acción</th></tr>' +
-                        '<tr><td>1</td>' +
-                        '<td>' + idD + '</td>' +
-                        '<td>' + resulBusqueda[0].apellido1 + '</td>' +
-                        '<td>' + resulBusqueda[0].apellido2 + '</td>' +
-                        '<td>' + resulBusqueda[0].nombre + '</td>' +
-                        '<td>' + resulBusqueda[0].nivel + '</td>' +
-                        '<td>' + resulBusqueda[0].grupo + '</td>' +
-                        '<td>' + resulBusqueda[0].sub_grupo + '</td>' +
-                        '<td><a class="btn-sm btn-primary" href="ratificarEstudiante/' + idD + '">Ratificar</a></td>' +
-                        '</tr>');
+                $('#tablaRatificar').append('<tr><th colspan="6" class="nombreTabla text-center">LIBROS ENCONTRADOS</th></tr><tr><th>N°</th><th>Título</th><th>Autor</th><th>Categoría</th><th>Editorial</th><th>Acción</th></tr>');
+                for (var i = 0; i < resulBusqueda.length; i++) {
+                    $('#tablaRatificar').append('<tr><td>1</td>' +
+                            '<td>' + resulBusqueda[i].titulo + '</td>' +
+                            '<td>' + resulBusqueda[i].autor + '</td>' +
+                            '<td>' + resulBusqueda[i].categoria + '</td>' +
+                            '<td>' + resulBusqueda[i].editorial + '</td>' +
+                            '<td><a class="btn-sm btn-warning" href="editarLibro/' + resulBusqueda[i].id + '">Editar</a> ' +
+                            '<a class="btn-sm btn-danger" href="eliminarLibro/' + resulBusqueda[i].id + '">Eliminar</a></td>' +
+                            '</tr>');
+                }
             }
         });
     });

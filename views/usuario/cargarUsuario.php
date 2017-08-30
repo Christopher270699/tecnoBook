@@ -3,14 +3,25 @@
 //die;
 ?>
 <center>
-    <table class="table table-condensed">
+    <div class="container">
+        <label for="txt_buscarDatos" class="col-xs-2 control-label">Buscar Usuario:</label>
+        <div class="col-xs-8">
+            <input type="text" class="col-xs-12 input-sm validate[required]" name="tf_cedulaEstudiante" id="tf_cedulaEstudiante"/>
+        </div>
+        <div class="col-xs-2">
+            <input type="button" class="col-xs-12 btn-sm btn-success" id="buscarEstudianteRatificar" value="Buscar"/>
+        </div>
+    </div>
+    <div class="col-xs-offset-6"></div>
+    <div class="col-xs-12"><br></div>
+    <div class="col-lg-10 col-xs-12"></div>
+    <table class="table table-condensed" id="tablaRatificar">
         <tr>
             <th colspan="10" class="nombreTabla text-center">Lista de Usuarios</th>
         </tr>
         <tr>
             <th>N°</th>
             <th>Nombre de Usuario</th>
-            <th>Contraseña</th>
             <th>Nombre Completo</th>
             <th>Cédula</th>
             <th>Correo Electrónico</th>
@@ -28,9 +39,6 @@
             echo '</td>';
             echo '<td>';
             echo $value['nombreUsuario'];
-            echo '</td>';
-            echo '<td>';
-            echo $value['password'];
             echo '</td>';
             echo '<td>';
             echo $value['nombre'];

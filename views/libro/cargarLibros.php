@@ -7,10 +7,10 @@
     <div class="container">
         <label for="txt_buscarDatos" class="col-xs-2 control-label">Buscar Libro:</label>
         <div class="col-xs-8">
-            <input type="text" class="col-xs-12 input-sm validate[required]" name="tf_titulo" id="tf_titulo"/>
+            <input type="text" class="col-xs-12 input-sm validate[required]" name="tf_cedulaEstudiante" id="tf_cedulaEstudiante"/>
         </div>
         <div class="col-xs-2">
-            <input type="button" class="col-xs-12 btn-sm btn-success" id="buscarTituloLibro" value="Buscar"/>
+            <input type="button" class="col-xs-12 btn-sm btn-success" id="buscarEstudianteRatificar" value="Buscar"/>
         </div>
     </div>
     <div class="col-xs-offset-6"></div>
@@ -25,7 +25,7 @@
             <th>N°</th>
             <th>Título</th>
             <th>Autor</th>
-            <th>Categoría</th>
+            <th>Descriptor</th>
             <th>Editorial</th>
             <?php if (Session::get('tipoUsuario') < 1) { ?>
                 <th colspan="2" class="text-center">Acción</th>

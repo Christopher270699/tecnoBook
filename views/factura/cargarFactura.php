@@ -5,7 +5,7 @@
 <center>
     <table class="table table-condensed">
         <tr>
-            <th colspan="8" class="nombreTabla text-center">Lista de Facturas</th>
+            <th colspan="8" class="nombreTabla text-center">CIRCULACIÓN</th>
         </tr>
         <tr>
             <th>ID</th>
@@ -17,7 +17,7 @@
             <th colspan="2" class="text-center">Acción</th>
         </tr>
         <?php
-        $mensaje = "'¿Desea eliminar esta factura?'";
+        $mensaje = "'¿Ya se ha entregado el préstamo?'";
         foreach ($this->listaFacturas as $lista => $value) {
             echo '<td>';
             echo $value['id'];
@@ -44,7 +44,7 @@
             echo '</td>';
             echo '<td class = text-center>';
             echo '<a class="btn-sm btn-warning" href="editarFactura/' . $value['id'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
+            echo '<a class="btn-sm btn-danger" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a>';
             echo '</td>';
             echo '</tr>';
         }

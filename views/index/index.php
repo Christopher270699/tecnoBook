@@ -1,4 +1,9 @@
-<h2>Bienvenid@ a la app bla bla.</h1>
+<h1>Bienvenido(a) a TecnoBook.</h1>
+<br>
+<h4>"La lectura nos permite realizar nuestros sueños."</h4>
+<br>
+<br>
+<br>
 <p>Versión Beta desarrollada por empresa Corporation.</p>
 <?php
 //Forma de Encriptacion del Password

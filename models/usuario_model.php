@@ -8,6 +8,13 @@ Class Usuario_Model extends Models {
 
     /* Inserta estudiante Nuevo Usuario en la BD */
 
+    public function buscarEstuRatif($ced_estudiante) {
+        $resultado = $this->db->select("SELECT * "
+                . "FROM usuario "
+                . "WHERE nombreUsuario LIKE '%" . $ced_estudiante . "%'");
+        echo json_encode($resultado);
+    }
+
     public function guardarUsuario($datos) {
         //Guardo los datos en usuario, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaUsuario = $this->db->select("SELECT * FROM usuario "
@@ -23,6 +30,7 @@ Class Usuario_Model extends Models {
                 'nombreUsuario' => $datos['txt_nombreUsuario'],
                 'password' => $pass,
                 'cedula' => $datos['txt_cedula'],
+                'nombre' => $datos['txt_nombre'],
                 'correo' => $datos['txt_correo'],
                 'telefono' => $datos['txt_telefono'],
                 'seccion' => $datos['txt_seccion'],
@@ -40,6 +48,7 @@ Class Usuario_Model extends Models {
                 'nombreUsuario' => $datos['txt_nombreUsuario'],
                 'password' => $pass,
                 'cedula' => $datos['txt_cedula'],
+                'nombre' => $datos['txt_nombre'],
                 'correo' => $datos['txt_correo'],
                 'telefono' => $datos['txt_telefono'],
                 'seccion' => $datos['txt_seccion']);

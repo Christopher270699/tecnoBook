@@ -17,7 +17,7 @@
                 <div class="col-xs-2">
                     <input type="text" class="form-control input-sm"  id="txt_Autor" name="txt_autor"/>
                 </div>
-                <label for="txt_categoria" class="col-xs-2 control-label">Categoria:</label>
+                <label for="txt_categoria" class="col-xs-2 control-label">Descriptor:</label>
                 <div class="col-xs-2">
                     <input type="text" class="form-control input-sm validate[required]"  id="txt_Categoria" name="txt_categoria"/>
                 </div> 
