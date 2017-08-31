@@ -8,10 +8,10 @@ Class Libro_Model extends Models {
 
     /* BUSCADOR */
 
-    public function buscarEstuRatif($ced_estudiante) {
+    public function buscarEstuRatif($datos) {
         $resultado = $this->db->select("SELECT * "
                 . "FROM libro "
-                . "WHERE titulo LIKE '%" . $ced_estudiante . "%'");
+                . "WHERE " . $datos ['campoTabla'] . "  LIKE '%" . $datos ['txt_datosBuscar'] . "%'");
         echo json_encode($resultado);
     }
 

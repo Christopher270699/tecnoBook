@@ -43,7 +43,7 @@
             <!--L25 Imprimir y Guardar (Formulario Hugo)-->
             <div class="form-group"> 
                 <div class="col-xs-12 text-center">
-                    <input type="submit" class="btn btn-primary" id="guardar" value="Guardar e Imprimir" />
+                    <input type="submit" class="btn btn-primary" id="guardar" value="Guardar" />
                 </div>
             </div>
         </fieldset>

@@ -6,6 +6,42 @@ Class Factura_Model extends Models {
         parent::__construct();
     }
 
+    /* BUSCADOR */
+
+    public function buscarEstuRatif($datos) {
+        $resultado = $this->db->select("SELECT * "
+                . "FROM factura "
+                . "WHERE " . $datos ['campoTabla'] . "  LIKE '%" . $datos ['txt_datosBuscar'] . "%'");
+        echo json_encode($resultado);
+    }
+
+    public function aceptarFactura($id) {
+        //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
+        $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
+                . "WHERE id = " . $id . " ");
+        if ($consultaExistenciaFactura == null) {
+            echo 'Error... ya existe';
+            die;
+        } else {
+            //Sino Inserto datos de Pre-Matricula del Estudiante
+            $this->db->insert('multa', array(
+                'nombreLibro' => $consultaExistenciaFactura[0]['nombreLibro'],
+                'nombreEstudiante' => $consultaExistenciaFactura[0]['nombreEstudiante'],
+                'fechaPedido' => $consultaExistenciaFactura[0]['fechaPedido'],
+                'fechaEntrega' => $consultaExistenciaFactura[0]['fechaEntrega']));
+        }
+
+        $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
+                . "WHERE id = '" . $id . "' ");
+        if ($consultaExistenciaFactura != null) {
+            $this->db->delete('factura', "`id` = '{$id}'");
+        } else {
+            //Sino Inserto datos de Pre-Matricula del Estudiante
+            echo 'Error... no existe';
+            die;
+        }
+    }
+
     public function listaLibros() {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaListaLibros = $this->db->select("SELECT * FROM libro "

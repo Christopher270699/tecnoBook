@@ -16,7 +16,7 @@
                 </div>
                 <label for="txt_password" class="col-xs-2 control-label">Contraseña:</label>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm validate[required]" value='<?php echo $this->datosUsuario[0]['password']; ?>' id="txt_password" name="txt_password"/>
+                    <input type="text" class="form-control input-sm validate[required]" id="txt_password" name="txt_password"/>
                 </div>
             </div>
             <!--NOMBRE COMPLETO-->

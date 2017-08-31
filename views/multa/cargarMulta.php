@@ -27,7 +27,7 @@
     <!--Tabla-->
     <table class="table table-condensed" id="tablaRatificar">
         <tr>
-            <th colspan="8" class="nombreTabla text-center">CIRCULACIÓN</th>
+            <th colspan="8" class="nombreTabla text-center">LISTA DE MULTAS</th>
         </tr>
         <tr>
             <th>ID</th>
@@ -40,8 +40,8 @@
         </tr>
         <?php
         $mensaje = "'¿Ya se ha entregado el préstamo?'";
-        $mensaje = "'¿Se debe multar este Préstamo?'";
-        foreach ($this->listaFacturas as $lista => $value) {
+        $mensaje = "'¿Se debe quitar este préstamo?'";
+        foreach ($this->listaMultas as $lista => $value) {
             echo '<td>';
             echo $value['id'];
             echo '</td>';
@@ -68,9 +68,7 @@
             //echo $diferenciaDias->format('%R%a día(s)');
             echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-success" href="editarFactura/' . $value['id'] . '">Editar</a> &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-warning" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a> &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="aceptarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Multar</a>';
+            echo '<a class="btn-sm btn-danger" href="eliminarMulta/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Quitar</a> &nbsp; &nbsp;';
             echo '</td>';
             echo '</tr>';
         }

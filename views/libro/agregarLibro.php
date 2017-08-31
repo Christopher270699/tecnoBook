@@ -39,7 +39,7 @@
             </div>
             <!--L4 FECHA PUBLICACION LUGAR PUBLICACION ISBN-->
             <div class="form-group">
-                <label for="txt_fechaPublicacion" class="col-xs-2 control-label">Fecha de Publicación:</label>
+                <label for="txt_fechaPublicacion" class="col-xs-2 control-label">Año de Publicación:</label>
                 <div class="col-xs-2">
                     <input type="text" class="form-control input-sm validate[required]"  id="txt_fechaPublicacion" name="txt_fechaPublicacion"/>
                 </div>
@@ -63,7 +63,7 @@
             <!--L25 GUARDAR-->
             <div class="form-group"> 
                 <div class="col-xs-12 text-center">
-                    <input type="submit" class="btn btn-primary" id="guardar" value="Guardar e Imprimir" />
+                    <input type="submit" class="btn btn-primary" id="guardar" value="Guardar" />
                 </div>
             </div>
         </fieldset>

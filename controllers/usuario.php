@@ -5,6 +5,7 @@ class Usuario extends Controllers {
     function __construct() {
         parent::__construct();
         Auth::handleLogin();
+        Auth::securityLevel();
         $this->view->js = array('usuario/js/jsUsuario.js');
     }
 

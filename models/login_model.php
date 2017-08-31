@@ -26,7 +26,6 @@ Class Login_Model extends Models {
             header('location: ../login');
         }
     }
-
 }
 
 ?>

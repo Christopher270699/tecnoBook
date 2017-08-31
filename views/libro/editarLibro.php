@@ -55,9 +55,9 @@
             </div>
             <!--L5 CONTENIDO-->
             <label for="txt_contenido" class="col-xs-2 control-label">Editorial:</label>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control input-sm validate[required]"  id="txt_contenido" name="txt_contenido" value='<?php echo $this->datosLibro[0]['contenido']; ?>'/>
-                </div> 
+            <div class="col-xs-10">
+                <input type="text" class="form-control input-sm validate[required]"  id="txt_contenido" name="txt_contenido" value='<?php echo $this->datosLibro[0]['contenido']; ?>'/>
+            </div> 
             <br><br>
             <!--L25 Imprimir y Guardar (Formulario Hugo)-->
             <div class="form-group"> 

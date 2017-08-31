@@ -17,8 +17,8 @@ $(function ()
                             '<td>' + resulBusqueda[i].correo + '</td>' +
                             '<td>' + resulBusqueda[i].telefono + '</td>' +
                             '<td>' + resulBusqueda[i].seccion + '</td>' +
-                            '<td><a class="btn-sm btn-warning" href="editarUsuario/' + resulBusqueda[i].id + '">Editar</a> ' +
-                            '<a class="btn-sm btn-danger" href="eliminarUsuario/' + resulBusqueda[i].id + '">Eliminar</a></td>' +
+                            '<td><a class="btn-sm btn-warning" href="editarUsuario/' + resulBusqueda[i].nombreUsuario + '">Editar</a> ' +
+                            '<a class="btn-sm btn-danger" href="eliminarUsuario/' + resulBusqueda[i].nombreUsuario + '">Eliminar</a></td>' +
                             '</tr>');
                 }
             }

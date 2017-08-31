@@ -2,12 +2,12 @@
 </div><!--Cierre de row-->
 <div class="row">
     <div class="col-lg-12 text-center">
-        &copy; empresa Corporation. All rights reserved.
+        &copy; Q-VER. All rights reserved.
     </div>
 </div>
 <div class="row">
     <div class="col-lg-12 text-center">
-        BETA VERSION v1.0.0
+        ALPHA VERSION v1.0.0
     </div>
 </div>
 </div><!--Cierre de container--> 

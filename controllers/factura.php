@@ -9,12 +9,35 @@ class Factura extends Controllers {
         $this->view->js = array('factura/js/jsFactura.js');
     }
 
+    function aceptarFactura($id) {
+        $this->view->title = 'Multar Factura';
+        $this->model->aceptarFactura($id);
+        header("Location:" . URL . "factura/cargarFactura");
+    }
+
     function agregarFactura() {
         $this->view->title = 'Agregar Factura';
         $this->view->render('header');
         $this->view->listaLibros = $this->model->listaLibros();
         $this->view->render('factura/agregarFactura');
         $this->view->render('footer');
+    }
+
+    function buscarEstuRatif() {
+        $datos = array();
+        $datos ['txt_datosBuscar'] = $_POST['txt_datosBuscar'];
+        $campoTabla;
+        switch ($_POST['txt_descripcionConsulta']) {
+            case 0 :
+                break;
+            case 1 :
+                $datos ['campoTabla'] = 'nombreLibro';
+                break;
+            case 2 :
+                $datos ['campoTabla'] = 'nombreEstudiante';
+                break;
+        }
+        $this->model->buscarEstuRatif($datos);
     }
 
     function cargarFactura() {
@@ -45,8 +68,18 @@ class Factura extends Controllers {
         $datos ['txt_nombreEstudiante'] = $_POST['txt_nombreEstudiante'];
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
-        $this->model->guardarFactura($datos);
-        header("Location:" . URL . "factura/cargarFactura");
+        $fechaIngreso = new DateTime($datos['txt_fechaPedido']);
+        $fechaSalida = new DateTime($datos['txt_fechaEntrega']);
+        $diferenciaDias = $fechaIngreso->diff($fechaSalida);
+        if ((int) $diferenciaDias->format('%R%a') < 0 || (int) $diferenciaDias->format('%R%a') > 14) {
+            $this->view->title = 'ERROR';
+            $this->view->render('header');
+            $this->view->render('error/errorFechas');
+            $this->view->render('footer');
+        } else {
+            $this->model->guardarFactura($datos);
+            header("Location:" . URL . "factura/cargarFactura");
+        }
     }
 
     function actualizarFactura() {
@@ -56,8 +89,26 @@ class Factura extends Controllers {
         $datos ['txt_nombreEstudiante'] = $_POST['txt_nombreEstudiante'];
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
-        $this->model->actualizarFactura($datos);
-        header("Location:" . URL . "factura/cargarFactura");
+        $fechaIngreso = new DateTime($datos['txt_fechaPedido']);
+        $fechaSalida = new DateTime($datos['txt_fechaEntrega']);
+        $diferenciaDias = $fechaIngreso->diff($fechaSalida);
+        if ((int) $diferenciaDias->format('%R%a') < 0 || (int) $diferenciaDias->format('%R%a') > 14) {
+            $this->view->title = 'ERROR';
+            $this->view->render('header');
+            $this->view->render('error/errorFechasEditar');
+            $this->view->render('footer');
+        } else {
+            $this->model->actualizarFactura($datos);
+            header("Location:" . URL . "factura/cargarFactura");
+        }
+    }
+
+    function volverFormularioEditar() {
+        $this->view->title = 'Agregar Solicitud';
+        $this->view->render('header');
+        $this->view->listaFacturas = $this->model->listaFacturas();
+        $this->view->render('factura/cargarFactura');
+        $this->view->render('footer');
     }
 
     function recuperarClave() {

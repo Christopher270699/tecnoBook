@@ -94,14 +94,30 @@
                                                 <?php } ?>
                                             </ul>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Préstamo <span class="caret"></span></a>
-                                            <ul class="dropdown-menu" role="menu">
+                                    <?php } ?>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Préstamo <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php if (Session::get('tipoUsuario') < 1) { ?>
                                                 <li><a href="<?php echo URL; ?>factura/agregarFactura">Agregar Préstamo</a></li>
                                                 <li><a href="<?php echo URL; ?>factura/cargarFactura">Lista de Préstamos</a></li>
-                                            </ul>
-                                        </li>
-                                    <?php } ?>
+                                            <?php } ?>
+                                            <?php if (Session::get('tipoUsuario') >= 1) { ?>
+                                                <li><a href="<?php echo URL; ?>facturaNormal/cargarFacturaNormal">Mis Préstamos</a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Multa <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php if (Session::get('tipoUsuario') < 1) { ?>
+                                                <li><a href="<?php echo URL; ?>multa/cargarMulta">Lista de Multas</a></li>
+                                            <?php } ?>
+                                            <?php if (Session::get('tipoUsuario') >= 1) { ?>
+                                                <li><a href="<?php echo URL; ?>multaNormal/cargarMultaNormal">Mis Multas</a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contacto <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
@@ -165,7 +181,7 @@
                     <div class="col-xs-12">
                         <h1><strong>TECNO-BOOK</strong></h1>
                         <h4><p class="text-success">Colegio Técnico Profesional de Carrizal, Dirección Regional de Alajuela Circuito -01-</p></h4>
-                        <h4><p class="text-succes">Telefax: 2483-0055</p></h4>
+                        <h4><p class="text-success">Telefax: 2483-0055</p></h4>
                         <!--<label id="datetime" size="50"></label>-->
                     </div>
                 </div>
