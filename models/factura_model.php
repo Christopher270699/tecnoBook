@@ -6,6 +6,36 @@ Class Factura_Model extends Models {
         parent::__construct();
     }
 
+    /* cb Estudiantes */
+    public function consultaNiveles() {
+        return $this->db->select("SELECT DISTINCT nivel "
+                        . "FROM sipce_grupos "
+                        . "WHERE annio = " . 2017 . " "
+                        . "ORDER BY nivel");
+    }
+
+    public function cargaGrupos($idNivel) {
+        $resultado = $this->db->select("SELECT DISTINCT grupo FROM sipce_grupos "
+                . "WHERE nivel = :nivel "
+                . "AND annio = " . 2017 . " "
+                . "AND grupo <> 0 "
+                . "ORDER BY grupo", array('nivel' => $idNivel));
+        echo json_encode($resultado);
+    }
+
+    public function cargaSeccion($consulta) {
+        $resultado2 = $this->db->select("SELECT e.cedula,e.nombre,e.apellido1,e.apellido2,g.sub_grupo,r.condicion "
+                . "FROM sipce_estudiante as e, sipce_grupos as g, sipce_matricularatificacion as r "
+                . "WHERE e.cedula = g.ced_estudiante "
+                . "AND e.cedula = r.ced_estudiante "
+                . "AND g.nivel = " . $consulta['nivelSeleccionado'] . " "
+                . "AND g.grupo = " . $consulta['grupoSeleccionado'] . " "
+                . "AND g.annio = " . 2017 . " "
+                . "AND r.anio = " . 2017 . " "
+                . "ORDER BY g.sub_grupo,e.apellido1,e.apellido2,e.nombre");
+        echo json_encode($resultado2);
+    }/* Fin cb */
+
     /* BUSCADOR */
 
     public function buscarEstuRatif($datos) {

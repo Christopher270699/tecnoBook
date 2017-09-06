@@ -18,10 +18,23 @@ class Factura extends Controllers {
     function agregarFactura() {
         $this->view->title = 'Agregar Factura';
         $this->view->render('header');
+        $this->view->consultaNiveles = $this->model->consultaNiveles();
         $this->view->listaLibros = $this->model->listaLibros();
         $this->view->render('factura/agregarFactura');
         $this->view->render('footer');
     }
+
+//cb Estudiantes
+    function cargaGrupos($idNivel) {
+        $this->model->cargaGrupos($idNivel);
+    }
+
+    function cargaSeccion() {
+        $consulta = array();
+        $consulta['nivelSeleccionado'] = $_POST['nivelSeleccionado'];
+        $consulta['grupoSeleccionado'] = $_POST['grupoSeleccionado'];
+        $this->model->cargaSeccion($consulta);
+    }//Fin cb
 
     function buscarEstuRatif() {
         $datos = array();

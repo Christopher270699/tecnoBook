@@ -2,9 +2,38 @@
 //print_r($this->especialidadEstudiante);
 //die;
 ?>
-<div class="row">
-    <form id="MyForm" action="<?php echo URL; ?>factura/guardarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
-        <fieldset>
+<form id="MyForm" action="<?php echo URL; ?>factura/guardarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <fieldset>
+        
+        <div class="row">
+            <div class="row">
+                <div class="form-group">
+                    <label for="tf_Niveles" class="col-xs-2 control-label">Nivel:</label>
+                    <div class="col-xs-2">
+                        <select class="form-control input-sm" name="tf_Niveles" id="tf_Niveles">
+                            <option value="">Seleccione</option>
+                            <?php
+                            foreach ($this->consultaNiveles as $value) {
+                                ?>
+                                <option value="<?php echo $value['nivel']; ?>"><?php echo $value['nivel']; ?></option>
+                                <?php
+                            }
+                            ?>  
+                        </select>
+                    </div>
+                    <label for="tf_Grupos" class="col-xs-2 control-label">Grupo:</label>
+                    <div class="col-xs-2">
+                        <select class="form-control input-sm" name="tf_Grupos" id="tf_Grupos">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-xs-12">
+                    <table class="table table-condensed" id="listaEstudiantes"></table>
+                </div>
+            </div>
+
             <legend class="text-center">Agregar Préstamo</legend>
             <!--L1 Cedula y Genero *Nacionalidad (Nuevo)(Formulario Hugo)-->
             <!--L2 Nombre Estudiante (Formulario Hugo)-->
@@ -25,8 +54,7 @@
                 </div>
                 <label for="txt_nombreEstudiante" class="col-xs-2 control-label">Nombre del Estudiante:</label>
                 <div class="col-xs-4">
-                    <input type="hidden" class="form-control input-sm" value='<?php echo $_SESSION['nombre']; ?>' id="txt_nombreEstudiante" name="txt_nombreEstudiante"/>
-                    <input type="text" class="form-control input-sm" value='<?php echo $_SESSION['nombre']; ?>' id="txt_nombreEstudiante" name="txt_nombreEstudiante" disabled=""/>
+                    <input type="text" class="form-control input-sm" value='<?php echo $_SESSION['nombre']; ?>' id="txt_nombreEstudiante" name="txt_nombreEstudiante"/>
                 </div>
             </div>
             <div class="form-group">
@@ -46,6 +74,6 @@
                     <input type="submit" class="btn btn-primary" id="guardar" value="Guardar" />
                 </div>
             </div>
-        </fieldset>
-    </form>
+    </fieldset>
+</form>
 </div>
