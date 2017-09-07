@@ -20,6 +20,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
 $(function ()
 {
+    var comilla = "'";
     //Fecha Nacimiento//
     $("#txt_fechaPedido").datepicker({dateFormat: 'yy-mm-dd',
         changeMonth: true,
@@ -88,11 +89,11 @@ $(function ()
                     arraySalida += '<tr><td colspan="4" class="text-center">&nbsp;</td></tr><tr><td colspan="4" class="text-center">Grupo C</td></tr>';
                     banderaGrupoC = 1;
                 }
-                arraySalida += '<tr><td>' + (linea + 1) + '</td><td>' +
+                arraySalida += '<tr id="' + seccionElegida[linea].cedula + '"><td>' + (linea + 1) + '</td><td>' +
                         seccionElegida[linea].cedula + '</td><td>' + seccionElegida[linea].apellido1 + ' ' +
                         seccionElegida[linea].apellido2 + ' ' + seccionElegida[linea].nombre + '</td><td>' +
                         seccionElegida[linea].condicion + '</td>';
-                arraySalida += '<td><a class="btn-sm btn-primary" href="modificarSeccion/' + seccionElegida[linea].cedula + '">Agregar</a></td></tr>';
+                arraySalida += '<td><a class="btn-sm btn-primary" onclick="copiarTexto(' + comilla + seccionElegida[linea].cedula + comilla +  ')">Agregar</a></td></tr>';
             }
             arraySalida += '<tr><td colspan="5" class="text-center">Ultima Línea</td></tr></tbody>';
             $('#listaEstudiantes').append(arraySalida);
@@ -100,3 +101,11 @@ $(function ()
     });
 //fin cargar
 });
+
+function copiarTexto(id_busqueda) {
+    var datosEstudiante = document.getElementById(id_busqueda);
+    var cedulaEstudiante = document.getElementById("txt_cedulaJugador");
+    var nombreEstudiante = document.getElementById("txt_nombreEstudiante");
+    nombreEstudiante.value = datosEstudiante.cells[2].innerHTML;
+    cedulaEstudiante.value = datosEstudiante.cells[1].innerHTML;
+}

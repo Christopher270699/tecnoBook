@@ -54,7 +54,7 @@
                 </div>
                 <label for="txt_nombreEstudiante" class="col-xs-2 control-label">Nombre del Estudiante:</label>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" value='<?php echo $_SESSION['nombre']; ?>' id="txt_nombreEstudiante" name="txt_nombreEstudiante"/>
+                    <input type="text" class="form-control input-sm" id="txt_nombreEstudiante" name="txt_nombreEstudiante"/>
                 </div>
             </div>
             <div class="form-group">
