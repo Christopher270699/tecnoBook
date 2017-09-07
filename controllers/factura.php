@@ -81,6 +81,7 @@ class Factura extends Controllers {
         $datos ['txt_nombreEstudiante'] = $_POST['txt_nombreEstudiante'];
         $datos ['txt_fechaPedido'] = $_POST['txt_fechaPedido'];
         $datos ['txt_fechaEntrega'] = $_POST['txt_fechaEntrega'];
+        $datos ['txt_cedula'] = $_POST['txt_cedula'];
         $fechaIngreso = new DateTime($datos['txt_fechaPedido']);
         $fechaSalida = new DateTime($datos['txt_fechaEntrega']);
         $diferenciaDias = $fechaIngreso->diff($fechaSalida);

@@ -104,7 +104,7 @@ $(function ()
 
 function copiarTexto(id_busqueda) {
     var datosEstudiante = document.getElementById(id_busqueda);
-    var cedulaEstudiante = document.getElementById("txt_cedulaJugador");
+    var cedulaEstudiante = document.getElementById("txt_cedula");
     var nombreEstudiante = document.getElementById("txt_nombreEstudiante");
     nombreEstudiante.value = datosEstudiante.cells[2].innerHTML;
     cedulaEstudiante.value = datosEstudiante.cells[1].innerHTML;

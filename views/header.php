@@ -121,8 +121,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contacto <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="<?php echo URL; ?>contacto/acercaDe">Acerca de Nosotros...</a></li>
-                                            <li><a href="<?php echo URL; ?>contacto/sugerencia">Enviar Sugerencia</a></li>
+                                            <li><a href="<?php echo URL; ?>contacto/acercaDeBiblioCRA">Acerca de BiblioCRA...</a></li>
+                                            <li><a href="<?php echo URL; ?>contacto/acercaDeNosotros">Acerca de Nosotros...</a></li>
                                         </ul>
                                     </li>
                                 </ul>

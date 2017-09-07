@@ -95,25 +95,26 @@ Class Factura_Model extends Models {
                 'nombreLibro' => $datos['txt_nombreLibro'],
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
                 'fechaPedido' => $datos['txt_fechaPedido'],
-                'fechaEntrega' => $datos['txt_fechaEntrega']));
+                'fechaEntrega' => $datos['txt_fechaEntrega'],
+                'cedula' => $datos['txt_cedula']));
         }
     }
 
     public function actualizarFactura($datos) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE id = '" . $datos['txt_id'] . "' ");
+                . "WHERE cedula = '" . $datos['txt_cedula'] . "' ");
         if ($consultaExistenciaFactura != null) {
             $posData = array(
-                'id' => $datos['txt_id'],
+                'cedula' => $datos['txt_cedula'],
                 'nombreLibro' => $datos['txt_nombreLibro'],
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
                 'fechaPedido' => $datos['txt_fechaPedido'],
                 'fechaEntrega' => $datos['txt_fechaEntrega']);
-            $this->db->update('factura', $posData, "`id` = '{$datos['txt_id']}'");
+            $this->db->update('factura', $posData, "`cedula` = '{$datos['txt_cedula']}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
-            echo $datos['txt_id'];
+            echo $datos['txt_cedula'];
             echo 'Error... no existe';
             die;
         }
@@ -142,13 +143,13 @@ Class Factura_Model extends Models {
     public function datosFactura($datos) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE id = '" . $datos . "' ");
+                . "WHERE cedula = '" . $datos . "' ");
 
         if ($consultaExistenciaFactura != null) {
             return $consultaExistenciaFactura;
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
-            echo 'Ni madres...';
+            echo 'Error 1...';
             die;
         }
     }

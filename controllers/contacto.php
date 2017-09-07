@@ -7,10 +7,17 @@ class Contacto extends Controllers {
         Auth::handleLogin();
     }
 
-    function acercaDe() {
-        $this->view->title = 'Acerca De...';
+    function acercaDeNosotros() {
+        $this->view->title = 'Acerca De Nosotros...';
         $this->view->render('header');
-        $this->view->render('contacto/acercaDe');
+        $this->view->render('contacto/acercaDeNosotros');
+        $this->view->render('footer');
+    }
+    
+    function acercaDeBiblioCRA() {
+        $this->view->title = 'Acerca De BiblioCRA...';
+        $this->view->render('header');
+        $this->view->render('contacto/acercaDeBiblioCRA');
         $this->view->render('footer');
     }
 

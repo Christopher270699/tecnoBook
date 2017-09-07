@@ -30,7 +30,7 @@
             <th colspan="8" class="nombreTabla text-center">CIRCULACIÓN</th>
         </tr>
         <tr>
-            <th>ID</th>
+            <th>Cedula</th>
             <th>Nombre del Libro</th>
             <th>Nombre del Estudiante</th>
             <th>Fecha del Pedido</th>
@@ -43,7 +43,7 @@
         $mensaje = "'¿Se debe multar este Préstamo?'";
         foreach ($this->listaFacturas as $lista => $value) {
             echo '<td>';
-            echo $value['id'];
+            echo $value['cedula'];
             echo '</td>';
             echo '<td>';
             echo $value['nombreLibro'];
@@ -68,9 +68,9 @@
             //echo $diferenciaDias->format('%R%a día(s)');
             echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-success" href="editarFactura/' . $value['id'] . '">Editar</a> &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-warning" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a> &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="aceptarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Multar</a>';
+            echo '<a class="btn-sm btn-success" href="editarFactura/' . $value['cedula'] . '">Editar</a> &nbsp;';
+            echo '<a class="btn-sm btn-warning" href="eliminarFactura/' . $value['cedula'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a> &nbsp;';
+            echo '<a class="btn-sm btn-danger" href="aceptarFactura/' . $value['cedula'] . '" onclick = "return confirm(' . $mensaje . ');">Multar</a>';
             echo '</td>';
             echo '</tr>';
         }
