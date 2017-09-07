@@ -35,8 +35,8 @@
                     <input type="text" class="form-control input-sm validate[required]"  id="txt_fechaEntrega" name="txt_fechaEntrega" value='<?php echo $this->datosFactura[0]['fechaEntrega']; ?>'/>
                 </div>
             </div>
-            <br><br>
-            <br><br>
+            <br>
+            <br>
             <!--L25 Imprimir y Guardar (Formulario Hugo)-->
             <div class="form-group"> 
                 <div class="col-xs-12 text-center">

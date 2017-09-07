@@ -3,13 +3,12 @@
 //die;
 ?>
 <form id="MyForm" action="<?php echo URL; ?>factura/guardarFactura" method="POST" enctype="multipart/form-data" class="form-horizontal">
-    <fieldset>
-        
+    <fieldset>        
         <div class="row">
             <div class="row">
                 <div class="form-group">
                     <label for="tf_Niveles" class="col-xs-2 control-label">Nivel:</label>
-                    <div class="col-xs-2">
+                    <div class="col-xs-4">
                         <select class="form-control input-sm" name="tf_Niveles" id="tf_Niveles">
                             <option value="">Seleccione</option>
                             <?php
@@ -22,18 +21,20 @@
                         </select>
                     </div>
                     <label for="tf_Grupos" class="col-xs-2 control-label">Grupo:</label>
-                    <div class="col-xs-2">
+                    <div class="col-xs-4">
                         <select class="form-control input-sm" name="tf_Grupos" id="tf_Grupos">
                         </select>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-xs-12">
-                    <table class="table table-condensed" id="listaEstudiantes"></table>
+                <div class="col-lg-12 col-xs-12">
+                    <table class="table table-condensed" id="listaEstudiantes">
+                        
+                    </table>
                 </div>
             </div>
-
+            <!-- INICIO FORMULARIO -->
             <legend class="text-center">Agregar Préstamo</legend>
             <!--L1 Cedula y Genero *Nacionalidad (Nuevo)(Formulario Hugo)-->
             <!--L2 Nombre Estudiante (Formulario Hugo)-->
@@ -76,4 +77,3 @@
             </div>
     </fieldset>
 </form>
-</div>
