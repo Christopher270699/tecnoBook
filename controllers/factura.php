@@ -9,10 +9,10 @@ class Factura extends Controllers {
         $this->view->js = array('factura/js/jsFactura.js');
     }
 
-    function aceptarFactura($id) {
+    function multarFactura($cedula) {
         $this->view->title = 'Multar Factura';
-        $this->model->aceptarFactura($id);
-        header("Location:" . URL . "factura/cargarFactura");
+        $this->model->multarFactura($cedula);
+        header("Location:" . URL . "factura/multarFactura");
     }
 
     function agregarFactura() {

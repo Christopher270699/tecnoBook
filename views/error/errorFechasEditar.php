@@ -12,9 +12,6 @@
                     <h5>Por favor, vuelva a ingresar los datos.</h5>
                     &nbsp;
                     &nbsp;
-                    <div class="col-xs-12 text-center">
-                        <input type="submit" class="btn btn-primary" id="btn_volver" value="Volver A Las Facturas"/>
-                    </div>
                 </div>
             </div>
         </div>

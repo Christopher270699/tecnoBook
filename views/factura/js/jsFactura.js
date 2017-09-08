@@ -39,7 +39,7 @@ $(function ()
         //Realizo la consulta
         $.post('buscarEstuRatif/', consulta, function (resulBusqueda, success) {
             if (jQuery.isEmptyObject(resulBusqueda)) {
-                alert("El libro a buscar no ha sido encontrado.\nPor favor, verifique los datos ingresados.");
+                alert("El préstamo a buscar no ha sido encontrado.\nPor favor, verifique los datos ingresados.");
             } else {
                 $("#tablaRatificar").empty();
                 $('#tablaRatificar').append('<tr><th colspan="6" class="nombreTabla text-center">PRÉSTAMOS ENCONTRADOS</th></tr><tr><th>ID</th><th>Nombre del Libro</th><th>Nombre del Estudiante</th><th>Fecha del Pedido</th><th>Fecha de Entrega</th><th>Acción</th></tr>');

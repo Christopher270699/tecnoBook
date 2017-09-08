@@ -45,12 +45,14 @@ Class Factura_Model extends Models {
         echo json_encode($resultado);
     }
 
-    public function aceptarFactura($id) {
+    public function multarFactura($cedula) {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE id = " . $id . " ");
+                . "WHERE cedula = " . $cedula . " ");
+        
         if ($consultaExistenciaFactura == null) {
-            echo 'Error... ya existe';
+            echo $consultaExistenciaFactura[0]['cedula'];
+            echo 'Error... no existe esa factura';
             die;
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
@@ -62,9 +64,9 @@ Class Factura_Model extends Models {
         }
 
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE id = '" . $id . "' ");
+                . "WHERE cedula = '" . $cedula . "' ");
         if ($consultaExistenciaFactura != null) {
-            $this->db->delete('factura', "`id` = '{$id}'");
+            $this->db->delete('factura', "`cedula` = '{$cedula}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             echo 'Error... no existe';
@@ -84,11 +86,11 @@ Class Factura_Model extends Models {
     public function guardarFactura($datos) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE nombreLibro = '" . $datos['txt_nombreLibro'] . "' ");
+                . "WHERE nombreEstudiante = '" . $datos['txt_nombreEstudiante'] . "' ");
 
         if ($consultaExistenciaFactura != null) {
-            echo 'Error... ya existe';
-            die;
+            print_r($consultaExistenciaFactura);
+            die();
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             $this->db->insert('factura', array(
@@ -120,13 +122,13 @@ Class Factura_Model extends Models {
         }
     }
 
-    public function eliminarFactura($id) {
+    public function eliminarFactura($cedula) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE id = '" . $id . "' ");
+                . "WHERE cedula = '" . $cedula . "' ");
 
         if ($consultaExistenciaFactura != null) {
-            $this->db->delete('factura', "`id` = '{$id}'");
+            $this->db->delete('factura', "`cedula` = '{$cedula}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             echo 'Error... no existe';

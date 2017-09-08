@@ -89,9 +89,6 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="<?php echo URL; ?>usuario/agregarUsuario">Agregar Usuario</a></li>
                                                 <li><a href="<?php echo URL; ?>usuario/cargarUsuario">Lista de Usuarios</a></li>
-                                                <?php if (Session::get('tipoUsuario') < 2) { ?>
-                                                    <li><a href="<?php echo URL; ?>actualizarestudiantes/cargarSeccionesEstudiantes">Cargar Secciones Estudiantes</a></li>
-                                                <?php } ?>
                                             </ul>
                                         </li>
                                     <?php } ?>
