@@ -1,6 +1,6 @@
 <?php
 
-Class Solicitud_Model extends Models {
+Class SolicitudNormal_Model extends Models {
 
     public function __construct() {
         parent::__construct();
@@ -17,18 +17,12 @@ Class Solicitud_Model extends Models {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaSolicitud = $this->db->select("SELECT * FROM solicitud "
                 . "WHERE nombreLibro = '" . $datos['txt_nombreLibro'] . "' ");
-
-        if ($consultaExistenciaSolicitud != null) {
-            echo 'Error... ya existe';
-            die;
-        } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             $this->db->insert('solicitud', array(
                 'nombreLibro' => $datos['txt_nombreLibro'],
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
                 'fechaPedido' => $datos['txt_fechaPedido'],
                 'fechaEntrega' => $datos['txt_fechaEntrega']));
-        }
     }
 
     public function aceptarSolicitud($id) {
@@ -36,16 +30,17 @@ Class Solicitud_Model extends Models {
         $consultaExistenciaSolicitud = $this->db->select("SELECT * FROM solicitud "
                 . "WHERE id = " . $id . " ");
         if ($consultaExistenciaSolicitud == null) {
-            echo 'Error... no se encontro';
+            echo 'Error... ya existe';
             die;
         } else {
-            //agregar a factura
+            //Sino Inserto datos de Pre-Matricula del Estudiante
             $this->db->insert('factura', array(
                 'nombreLibro' => $consultaExistenciaSolicitud[0]['nombreLibro'],
                 'nombreEstudiante' => $consultaExistenciaSolicitud[0]['nombreEstudiante'],
                 'fechaPedido' => $consultaExistenciaSolicitud[0]['fechaPedido'],
                 'fechaEntrega' => $consultaExistenciaSolicitud[0]['fechaEntrega']));
         }
+
         $consultaExistenciaSolicitud = $this->db->select("SELECT * FROM solicitud "
                 . "WHERE id = '" . $id . "' ");
         if ($consultaExistenciaSolicitud != null) {
@@ -93,7 +88,8 @@ Class Solicitud_Model extends Models {
 
     public function listaSolicitudes() {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
-        $consultaListaSolicitudes = $this->db->select("SELECT * FROM solicitud");
+        $consultaListaSolicitudes = $this->db->select("SELECT * FROM solicitud " . 
+                "WHERE nombreEstudiante = '" . $_SESSION['nombre'] . "' ");
         return $consultaListaSolicitudes;
     }
 

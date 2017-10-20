@@ -33,6 +33,7 @@
             <th>ID</th>
             <th>Nombre del Libro</th>
             <th>Nombre del Estudiante</th>
+            <th>Cédula</th>
             <th>Fecha del Pedido</th>
             <th>Fecha de Entrega</th>
             <th>Tiempo Restante</th>
@@ -50,6 +51,9 @@
             echo '</td>';
             echo '<td>';
             echo $value['nombreEstudiante'];
+            echo '</td>';
+            echo '<td>';
+            echo $value['cedula'];
             echo '</td>';
             echo '<td>';
             echo $value['fechaPedido'];

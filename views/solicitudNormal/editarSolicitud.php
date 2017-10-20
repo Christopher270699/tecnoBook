@@ -4,7 +4,7 @@
 ?>
 <div class="row">
     <h1>Solicitud</h1>
-    <form id="MyForm" action="<?php echo URL; ?>solicitud/actualizarSolicitud" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <form id="MyForm" action="<?php echo URL; ?>solicitudNormal/actualizarSolicitud" method="POST" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
             <legend class="text-center">DATOS DE LA FACTURA</legend>
             <!--L2 Nombre Estudiante (Formulario Hugo)-->
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="txt_nombreLibro" class="col-xs-2 control-label">Nombre del Libro:</label>
-                <div class="col-xs-4">                    
+                <div class="col-xs-4">
                     <input type="text" disabled="" class="form-control input-sm validate[required]"  id="txt_nombreLibro" name="txt_nombreLibro" value='<?php echo $this->datosSolicitud[0]['nombreLibro']; ?>'/>
                     <input type="hidden" id="txt_nombreLibro" name="txt_nombreLibro" value='<?php echo $this->datosSolicitud[0]['nombreLibro']; ?>'/>
                 </div>

@@ -75,8 +75,8 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Solicitud <span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <?php if (Session::get('tipoUsuario') > 0) { ?>
-                                                <li><a href="<?php echo URL; ?>solicitud/agregarSolicitud">Agregar Solicitud</a></li>
-                                                <li><a href="<?php echo URL; ?>solicitud/cargarSolicitud">Lista de Solicitudes</a></li>
+                                                <li><a href="<?php echo URL; ?>solicitudNormal/agregarSolicitud">Agregar Solicitud</a></li>
+                                                <li><a href="<?php echo URL; ?>solicitudNormal/cargarSolicitud">Lista de Solicitudes</a></li>
                                             <?php } ?>
                                             <?php if (Session::get('tipoUsuario') < 1) { ?>
                                                 <li><a href="<?php echo URL; ?>solicitud/cargarSolicitud">Aceptar Solicitud</a></li>

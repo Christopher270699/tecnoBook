@@ -7,6 +7,7 @@ Class Factura_Model extends Models {
     }
 
     /* cb Estudiantes */
+
     public function consultaNiveles() {
         return $this->db->select("SELECT DISTINCT nivel "
                         . "FROM sipce_grupos "
@@ -34,7 +35,9 @@ Class Factura_Model extends Models {
                 . "AND r.anio = " . 2017 . " "
                 . "ORDER BY g.sub_grupo,e.apellido1,e.apellido2,e.nombre");
         echo json_encode($resultado2);
-    }/* Fin cb */
+    }
+
+/* Fin cb */
 
     /* BUSCADOR */
 
@@ -45,13 +48,13 @@ Class Factura_Model extends Models {
         echo json_encode($resultado);
     }
 
-    public function multarFactura($cedula) {
+    public function multarFactura($id) {
         //Guardo los datos en solicitud, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE cedula = " . $cedula . " ");
-        
+                . "WHERE id = " . $id . " ");
+
         if ($consultaExistenciaFactura == null) {
-            echo $consultaExistenciaFactura[0]['cedula'];
+            echo $consultaExistenciaFactura[0]['id'];
             echo 'Error... no existe esa factura';
             die;
         } else {
@@ -62,11 +65,11 @@ Class Factura_Model extends Models {
                 'fechaPedido' => $consultaExistenciaFactura[0]['fechaPedido'],
                 'fechaEntrega' => $consultaExistenciaFactura[0]['fechaEntrega']));
         }
-
+        
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE cedula = '" . $cedula . "' ");
+                . "WHERE id = '" . $id . "' ");
         if ($consultaExistenciaFactura != null) {
-            $this->db->delete('factura', "`cedula` = '{$cedula}'");
+            $this->db->delete('factura', "`id` = '{$id}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
             echo 'Error... no existe';
@@ -105,7 +108,7 @@ Class Factura_Model extends Models {
     public function actualizarFactura($datos) {
         //Guardo los datos en libro, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE cedula = '" . $datos['txt_cedula'] . "' ");
+                . "WHERE id = '" . $datos['txt_id'] . "' ");
         if ($consultaExistenciaFactura != null) {
             $posData = array(
                 'cedula' => $datos['txt_cedula'],
@@ -113,19 +116,19 @@ Class Factura_Model extends Models {
                 'nombreEstudiante' => $datos['txt_nombreEstudiante'],
                 'fechaPedido' => $datos['txt_fechaPedido'],
                 'fechaEntrega' => $datos['txt_fechaEntrega']);
-            $this->db->update('factura', $posData, "`cedula` = '{$datos['txt_cedula']}'");
+            $this->db->update('factura', $posData, "`id` = '{$datos['txt_id']}'");
         } else {
             //Sino Inserto datos de Pre-Matricula del Estudiante
-            echo $datos['txt_cedula'];
+            echo $datos['txt_id'];
             echo 'Error... no existe';
             die;
         }
     }
 
-    public function eliminarFactura($cedula) {
+    public function eliminarFactura($id) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE cedula = '" . $cedula . "' ");
+                . "WHERE id = '" . $id . "' ");
 
         if ($consultaExistenciaFactura != null) {
             $this->db->delete('factura', "`cedula` = '{$cedula}'");
@@ -145,7 +148,7 @@ Class Factura_Model extends Models {
     public function datosFactura($datos) {
         //Guardo los datos en factura, luego hay que ratificar para que consolide la matricula
         $consultaExistenciaFactura = $this->db->select("SELECT * FROM factura "
-                . "WHERE cedula = '" . $datos . "' ");
+                . "WHERE id = '" . $datos . "' ");
 
         if ($consultaExistenciaFactura != null) {
             return $consultaExistenciaFactura;

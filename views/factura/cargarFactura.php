@@ -30,9 +30,10 @@
             <th colspan="8" class="nombreTabla text-center">CIRCULACIÓN</th>
         </tr>
         <tr>
-            <th>Cedula</th>
+            <th>ID</th>
             <th>Nombre del Libro</th>
             <th>Nombre del Estudiante</th>
+            <th>Cédula</th>
             <th>Fecha del Pedido</th>
             <th>Fecha de Entrega</th>
             <th>Tiempo Restante</th>
@@ -43,13 +44,16 @@
         $mensaje = "'¿Se debe multar este Préstamo?'";
         foreach ($this->listaFacturas as $lista => $value) {
             echo '<td>';
-            echo $value['cedula'];
-            echo '</td>';
+            echo $value['id'];
+            echo '</td>';            
             echo '<td>';
             echo $value['nombreLibro'];
             echo '</td>';
             echo '<td>';
             echo $value['nombreEstudiante'];
+            echo '</td>';
+            echo '<td>';
+            echo $value['cedula'];
             echo '</td>';
             echo '<td>';
             echo $value['fechaPedido'];
@@ -68,9 +72,9 @@
             //echo $diferenciaDias->format('%R%a día(s)');
             echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-success" href="editarFactura/' . $value['cedula'] . '">Editar</a> &nbsp;';
-            echo '<a class="btn-sm btn-warning" href="eliminarFactura/' . $value['cedula'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a> &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="multarFactura/' . $value['cedula'] . '" onclick = "return confirm(' . $mensaje . ');">Multar</a>';
+            echo '<a class="btn-sm btn-success" href="editarFactura/' . $value['id'] . '">Editar</a> &nbsp;';
+            echo '<a class="btn-sm btn-warning" href="eliminarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Devuelto</a> &nbsp;';
+            echo '<a class="btn-sm btn-danger" href="multarFactura/' . $value['id'] . '" onclick = "return confirm(' . $mensaje . ');">Multar</a>';
             echo '</td>';
             echo '</tr>';
         }

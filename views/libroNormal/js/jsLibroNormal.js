@@ -11,7 +11,7 @@ $(function ()
                 alert("El libro a buscar no ha sido encontrado.\nPor favor, verifique los datos ingresados.");
             } else {
                 $("#tablaRatificar").empty();
-                $('#tablaRatificar').append('<tr><th colspan="6" class="nombreTabla text-center">LIBROS ENCONTRADOS</th></tr><tr><th>N°</th><th>Título</th><th>Autor</th><th>Código</th><th>Descriptor</th><th>Editorial</th><th>Acción</th></tr>');
+                $('#tablaRatificar').append('<tr><th colspan="6" class="nombreTabla text-center">LIBROS ENCONTRADOS</th></tr><tr><th>N°</th><th>Título</th><th>Autor</th><th>Código</th><th>Descriptor</th><th>Editorial</th></tr>');
                 for (var i = 0; i < resulBusqueda.length; i++) {
                     $('#tablaRatificar').append('<tr><td>' + (i + 1) + '</td>' +
                             '<td>' + resulBusqueda[i].titulo + '</td>' +
