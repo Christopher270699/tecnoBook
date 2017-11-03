@@ -21,12 +21,10 @@
         </tr>
         <tr>
             <th>N°</th>
-            <th>Nombre de Usuario</th>
-            <th>Nombre Completo</th>
             <th>Cédula</th>
+            <th>Nombre Completo</th>            
             <th>Correo Electrónico</th>
             <th>Télefono</th>
-            <th>Sección</th>
             <th colspan="2" class="text-center">Acción</th>
         </tr>
         <?php
@@ -38,13 +36,10 @@
             echo $con;
             echo '</td>';
             echo '<td>';
-            echo $value['nombreUsuario'];
+            echo $value['cedula'];
             echo '</td>';
             echo '<td>';
             echo $value['nombre'];
-            echo '</td>';
-            echo '<td>';
-            echo $value['cedula'];
             echo '</td>';
             echo '<td>';
             echo $value['correo'];
@@ -52,12 +47,9 @@
             echo '<td>';
             echo $value['telefono'];
             echo '</td>';
-            echo '<td>';
-            echo $value['seccion'];
-            echo '</td>';
             echo '<td class = text-center>';
-            echo '<a class="btn-sm btn-warning" href="editarUsuario/' . $value['nombreUsuario'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
-            echo '<a class="btn-sm btn-danger" href="eliminarUsuario/' . $value['nombreUsuario'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
+            echo '<a class="btn-sm btn-warning" href="editarUsuario/' . $value['cedula'] . '">Editar</a> &nbsp; &nbsp; &nbsp;';
+            echo '<a class="btn-sm btn-danger" href="eliminarUsuario/' . $value['cedula'] . '" onclick = "return confirm(' . $mensaje . ');">Eliminar</a>';
             echo '</td>';
             echo '</tr>';
             $con++;

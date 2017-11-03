@@ -156,6 +156,7 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li><a href="<?php echo URL; ?>login">Iniciar Sesión</a></li>
+                                    <li><a href="<?php echo URL; ?>registrarUsuario/buscarUsuario">Registrarse</a></li>
                                 </ul>
                             </div>
                         </div>

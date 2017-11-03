@@ -8,16 +8,17 @@
         <form id="MyForm" action="login/run" method="POST" enctype="multipart/form-data" class="form-horizontal">
             <fieldset>
                 <div class="form-group">
-                    <label for="tf_usuario" class="col-md-4 col-xs-6 control-label">Nombre Usuario:</label>
+                    <label for="tf_usuario" class="col-md-4 col-xs-6 control-label">Cédula:</label>
                     <div class="col-md-8 col-xs-6 ">
-                        <input class="form-control input-sm validate[required]" name="tf_usuario" id="tf_usuario" placeholder="Nombre usuario" type="text">
+                        <input class="form-control input-sm validate[required]" name="tf_usuario" id="tf_usuario" placeholder="X-XXXX-XXXX" type="text">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="tf_clave" class="col-md-4 col-xs-6 control-label">Contraseña:</label>
                     <div class="col-md-8 col-xs-6">
-                        <input class="form-control input-sm validate[required]" name="tf_clave" id="tf_clave" placeholder="Password" type="password">
-                        <a href="<?php echo URL; ?>login/recuperarClave">Olvidó su password?</a>
+                        <input class="form-control input-sm validate[required]" name="tf_clave" id="tf_clave" placeholder="CONTRASEÑA" type="password">
+                        <br>
+                        <a href="<?php echo URL; ?>login/recuperarClave">¿Olvidó su contraseña?</a>
                     </div>
                 </div>
                 <div class="form-group">
